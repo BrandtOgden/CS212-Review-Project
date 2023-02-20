@@ -1,0 +1,4 @@
+Brandt Ogden
+Assignment A2 30 true
+Assignment A3 30 true
+Assignment A4 20 true
