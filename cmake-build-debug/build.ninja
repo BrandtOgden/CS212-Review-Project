@@ -61,6 +61,12 @@ build CMakeFiles/CS212_Review_Project.dir/gradebook.cpp.obj: CXX_COMPILER__CS212
   OBJECT_DIR = CMakeFiles\CS212_Review_Project.dir
   OBJECT_FILE_DIR = CMakeFiles\CS212_Review_Project.dir
 
+build CMakeFiles/CS212_Review_Project.dir/helper_functions.cpp.obj: CXX_COMPILER__CS212_Review_Project_Debug C$:/Users/ogden/OneDrive/Documents/GitHub/CS212-Review-Project/helper_functions.cpp || cmake_object_order_depends_target_CS212_Review_Project
+  DEP_FILE = CMakeFiles\CS212_Review_Project.dir\helper_functions.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++11
+  OBJECT_DIR = CMakeFiles\CS212_Review_Project.dir
+  OBJECT_FILE_DIR = CMakeFiles\CS212_Review_Project.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CS212_Review_Project
@@ -69,7 +75,7 @@ build CMakeFiles/CS212_Review_Project.dir/gradebook.cpp.obj: CXX_COMPILER__CS212
 #############################################
 # Link the executable CS212_Review_Project.exe
 
-build CS212_Review_Project.exe: CXX_EXECUTABLE_LINKER__CS212_Review_Project_Debug CMakeFiles/CS212_Review_Project.dir/main.cpp.obj CMakeFiles/CS212_Review_Project.dir/gradebook.cpp.obj
+build CS212_Review_Project.exe: CXX_EXECUTABLE_LINKER__CS212_Review_Project_Debug CMakeFiles/CS212_Review_Project.dir/main.cpp.obj CMakeFiles/CS212_Review_Project.dir/gradebook.cpp.obj CMakeFiles/CS212_Review_Project.dir/helper_functions.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\CS212_Review_Project.dir

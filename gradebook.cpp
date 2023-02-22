@@ -45,33 +45,52 @@ void Gradebook::list_assignments() {
     // Loop through title_assignment and output all the names so the user knows what
     // assignments there are
     for (int i = 0; i < this->title_assignment.size(); i++) {
-        std::cout << i << ": " << this->title_assignment[i] << std::endl;
+        std::cout << this->title_assignment[i] << std::endl;
     }
 }
 
-
-float Gradebook::get_grade_individual(std::string name_assignment) {
-    // output the grade of name_assignment
-    // outputs earned points and total points along with the percentage and letter grade
+// output the grade of name_assignment
+// outputs earned points and total points along with the percentage and letter grade
+bool Gradebook::get_grade_individual(std::string name_assignment) {
     // variable to hold the value of total points
     int total_points;
+    // Variable to hold the index of the assignment we are dealing with
+    int index = -1;
     for (int i = 0; i < this->title_assignment.size(); i++) {
         if (this->title_assignment[i] == name_assignment) {
-            // Check for what the category is because that will change the total points
-            if (this->category[i] == "Lab") {
-                total_points = 20;
-            } else if (this->category[i] == "Assignment") {
-                total_points = 50;
-            } else if (this->category[i] == "Project 1") {
-                total_points = 150;
-            } else if (this->category[i] == "Project 2") {
-                total_points = 350;
-            } else if (this->category[i] == "Exam") {
-                total_points = 100;
-            }
+            index = i;
+            break;
         }
     }
-    return 0;
+
+    // Checks whether the name of assignment has been found
+    if (index == -1) {
+        std::cout << "There is not an assignment called " << name_assignment <<  " try again!" << std::endl;
+        return false;
+    } else {
+        // Check for what the category is because that will change the total points
+        if (this->category[index] == "Lab") {
+            total_points = 20;
+        } else if (this->category[index] == "Assignment") {
+            total_points = 50;
+        } else if (this->category[index] == "Project 1") {
+            total_points = 150;
+        } else if (this->category[index] == "Project 2") {
+            total_points = 350;
+        } else if (this->category[index] == "Exam") {
+            total_points = 100;
+        }
+
+        // Calculates the percentage
+        int pct = std::round((float(this->earned_points[index]) / float(total_points)) * 100);
+        // Calculates letter grade
+        std::string letter_grade = HelperFunctions::get_letter_grade(pct);
+
+        // Outputs the grade
+        std::cout << "Your grade for " << this->title_assignment[index] << " is a " << letter_grade << " or "
+                  << std::to_string(pct) << "%" << std::endl;
+        return true;
+    }
 
 }
 
