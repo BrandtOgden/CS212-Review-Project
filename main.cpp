@@ -2,20 +2,66 @@
 #include "gradebook.h"
 
 int main() {
-    // Will eventually have a big loop that allows for the user to either look at our grades
-    // use their own files or potentially just input grade manually
 
-    // Prompts the user the enter a file name that has assignments etc...
-    std::string file_name;
-    std::cout << "Enter the name of a file that has assignments on the next line:" << std::endl;
-    std::cin >> file_name;
-    //std::string file_name = "Brandt_grades.txt";
-    while (HelperFunctions::check_valid_file(file_name) == 0) {
-        std::cout << "This is not the name of a file in the Grades folder, try again!" << std::endl;
-        std::cin >> file_name;
+    /* Have different options for what the user can do and then show the options menu to do different things with it
+    1- Use one of our existing gradebooks
+     1a- Ryan Brooks
+     1b- Ryan Shilling
+     1c- Jake Dansereau
+     1d- Brandt Ogden
+    2- Use their own file to make a gradebook
+     */
+
+    std::cout << "What would you like to do?" << std::endl;
+    std::cout << "Type 1 - Open the grade book of one us" << std::endl;
+    std::cout << "     2 - Use your own file to create a gradebook" << std::endl;
+    std::string choice;
+    std::cin >> choice;
+    while (choice != "1" && choice != "2") {
+        std::cout << "Invalid option, try again!" << std::endl;
+        std::cin >> choice;
     }
 
-    // Create a gradebook
+    // Handles the different choices that the user has
+    if (choice == "1") {
+        std::cout << "Which person's gradebook would you like to open?" << std::endl;
+        std::cout << "  a - Ryan Brooks" << std::endl;
+        std::cout << "  b - Ryan Shilling" << std::endl;
+        std::cout << "  c - Jake Dansereau" << std::endl;
+        std::cout << "  d - Brandt Ogden" << std::endl;
+        std::string person_choice;
+        std::cin >> person_choice;
+        // Check for valid input
+        while (person_choice != "a" && person_choice != "b" && person_choice != "c" && person_choice != "d") {
+            std::cout << "Invalid option, try again!" << std::endl;
+            std::cin >> person_choice;
+        }
+        // Does things based on the person_choice
+        if (person_choice == "a") {
+            Gradebook gradebook("RyanB_grades.txt");
+        } else if (person_choice == "b") {
+            Gradebook gradebook("RyanS_grades.txt");
+        } else if (person_choice == "c") {
+            Gradebook gradebook("Jake_grades.txt");
+        } else {
+            // Choice d
+            Gradebook gradebook("Brandt_grades.txt");
+        }
+    } else {
+        // Remind the user to make sure the file is in the right place
+        std::cout << "Make sure your file is in the Grades folder, /cmake-build-debug/Grades" << std::endl;
+        // Opens the file specified by the user and does error checking for a valid file
+        std::string file_name;
+        std::cout << "Enter the name of a file from which you want to create a gradebook: " << std::endl;
+        std::cin >> file_name;
+        while (!HelperFunctions::check_valid_file(file_name)) {
+            std::cout << "This is not the name of a file in the Grades folder, try again!" << std::endl;
+            std::cin >> file_name;
+        }
+        // Creates the gradebook
+        Gradebook gradebook(file_name);
+    }
+
 
     // Display the controls menu
 
@@ -52,17 +98,14 @@ int main() {
 
     // after the user enters a choice it will run the function and ask the user to enter another input. They can enter 'quit' to stop
 
-    // Creates the gradebook
-    Gradebook my_gradebook(file_name); // Not sure what we're doing, but I made a temporary one for now
-    //Gradebook brandt_gradebook(file_name);
 
+    /*
     // Display the controls menu
     std::cout << "1- Get current grade";
     std::cout << "2- Get current grade and grades for each category";
 
     std::cout << "2- List all assignments";
     std::cout << "3- List assignments in a specific category";
-    std::cout << "4- List assignments in a specific category";
 
     std::string user_choice;
     std::cin >> user_choice;
@@ -73,25 +116,27 @@ int main() {
     }
     else if (user_choice == "2") {
 
-    }
+    }  */
 
-    brandt_gradebook.list_assignments();
-    std::cout << std::endl;
+
+    /*
 
     // Gets the grade of an assignment based on what user enters
     std::string name_assignment;
     std::cout << "Enter the name of an assignment that you would like to see the grade: " << std::endl;
     std::cin >> name_assignment;
     // Loop through until we get a valid assignment name
-    while (!brandt_gradebook.get_grade_individual(name_assignment)) {
+    while (!my_gradebook.get_grade_individual(name_assignment)) {
         std::cin >> name_assignment;
     }
 
     //Asks user to enter category they want to see their list of grades for
     //Also returns the total grade for that particular category
     std::string category; 
-    std::cout << "Enter a category type that you would like to see all grades from:"
+    std::cout << "Enter a category type that you would like to see all grades from:";
     std::cin >> category; 
     float get_category_total(std::string category);
+
+     */
 
 }

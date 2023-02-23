@@ -34,7 +34,7 @@ public:
     void list_assignments();
     // Calculates the grade for an individual assignment called name
     // Returns true or false based on if name_assignment is a valid assignment
-    bool get_grade_individual(std::string name_assignment);
+    int get_grade_individual(std::string name_assignment);
     // Calculates the grade for a certain category
     float get_category_total(std::string category);
     // Returns the total grade in different ways as defined by the project guidelines
@@ -44,7 +44,7 @@ public:
     // Automatically write new changes to the text file
     void edit(int option);
     // Getters
-    std::vector<std::string> get_category() {return this->category;}
+    std::vector<std::string> get_category() {return this->categoryList;}
     std::vector<std::string> get_title_assignment() {return this->title_assignment;}
     std::vector<int> get_earned_points() {return this->earned_points;}
     std::vector<bool> get_completed() {return this->completed;}
