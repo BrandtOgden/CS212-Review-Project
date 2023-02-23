@@ -49,6 +49,8 @@ void Gradebook::list_assignments() {
 }
 
 // Returns the percentage of the grade of the assignment specified
+// Returns -1 if there is not an assignment called name_assignment
+// Returns -2 if the assignment has not been completed yet
 int Gradebook::get_grade_individual(std::string name_assignment) {
     // variable to hold the value of total points
     int total_points = -1;
@@ -61,13 +63,14 @@ int Gradebook::get_grade_individual(std::string name_assignment) {
         }
     }
 
-    // TODO
-    // Add a check for whether the assignment has been completed or not
 
     // Checks whether the name of assignment has been found
     if (index == -1) {
         std::cout << "There is not an assignment called " << name_assignment <<  " try again!" << std::endl;
         return -1;
+    } else if (!this->completed[index]) {
+        std::cout << "This assignment has not been completed yet!" << std::endl;
+        return -2;
     } else {
         // Check for what the category is because that will change the total points
         if (this->categoryList[index] == "Lab") {
@@ -82,7 +85,7 @@ int Gradebook::get_grade_individual(std::string name_assignment) {
             total_points = 100;
         }
 
-        // TODO
+        //TODO
         // Add a check for whether or not total points has been initialized
         // If it equals negative one it means that there is something wrong with the input file
 

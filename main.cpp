@@ -25,10 +25,10 @@ int main() {
     // Handles the different choices that the user has
     if (choice == "1") {
         std::cout << "Which person's gradebook would you like to open?" << std::endl;
-        std::cout << "  a - Ryan Brooks" << std::endl;
-        std::cout << "  b - Ryan Shilling" << std::endl;
-        std::cout << "  c - Jake Dansereau" << std::endl;
-        std::cout << "  d - Brandt Ogden" << std::endl;
+        std::cout << "    a - Ryan Brooks" << std::endl;
+        std::cout << "    b - Ryan Shilling" << std::endl;
+        std::cout << "    c - Jake Dansereau" << std::endl;
+        std::cout << "    d - Brandt Ogden" << std::endl;
         std::string person_choice;
         std::cin >> person_choice;
         // Check for valid input
@@ -58,12 +58,13 @@ int main() {
             std::cout << "This is not the name of a file in the Grades folder, try again!" << std::endl;
             std::cin >> file_name;
         }
+        //TODO
+        // Add a check for whether the file is in a valid format
+
         // Creates the gradebook
         Gradebook gradebook(file_name);
     }
 
-
-    // Display the controls menu
 
     /* There will be a menu that will be displayed so the user can choose a number. For certain options, a sub-menu will open
     1- Get Grade
@@ -98,29 +99,19 @@ int main() {
 
     // after the user enters a choice it will run the function and ask the user to enter another input. They can enter 'quit' to stop
 
+    // Start of the main loop that will do different things to do the gradebook
+    std::cout << "What would you like to do with the gradebook?" << std::endl;
+    std::cout << "    1 - Get your grade" << std::endl;
+    std::cout << "    2 - List the current assignments" << std::endl;
+    std::cout << "    3 - Create a new assignment" << std::endl;
+    std::cout << "    4 - Edit an existing assignment" << std::endl;
+    std::cout << "    5 - Remove an assignment" << std::endl;
 
-    /*
-    // Display the controls menu
-    std::cout << "1- Get current grade";
-    std::cout << "2- Get current grade and grades for each category";
-
-    std::cout << "2- List all assignments";
-    std::cout << "3- List assignments in a specific category";
-
-    std::string user_choice;
-    std::cin >> user_choice;
-
-    if (user_choice == "1") {
-        // Option 1 to return the overall course grade
-        std::cout << std::to_string(my_gradebook.get_total_grade(1));
-    }
-    else if (user_choice == "2") {
-
-    }  */
+    //TODO
+    // Continue working on main loop and have it do the different options that Ryan specified
 
 
     /*
-
     // Gets the grade of an assignment based on what user enters
     std::string name_assignment;
     std::cout << "Enter the name of an assignment that you would like to see the grade: " << std::endl;
