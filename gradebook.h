@@ -9,13 +9,21 @@ class Gradebook {
 private:
     // Stores the name of the gradebook that it is ("Brandt" , "Ryan", "Jake")
     std::string name;
-    std::vector<std::string> category;
+    std::vector<std::string> categoryList;
     std::vector<std::string> title_assignment;
     // Don't need possible_points because that is determined by the category
     // Lab = 20 points Assignment = 50 points ...
     std::vector<int> earned_points;
     std::vector<bool> completed;
     std::string file_name;
+
+    //vectors for grades stored in each category
+    std::vector<int> labGrades;
+    std::vector<int> assignmentGrades;
+    std::vector<int> proj1Grades;
+    std::vector<int> proj2Grades;
+    std::vector<int> examGrades;
+
 
 public:
     // Constructor that gets assignments and grades from a file

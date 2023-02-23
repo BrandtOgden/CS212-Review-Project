@@ -1,5 +1,5 @@
 #include "gradebook.h"
-
+#include <vector> 
 // Implement functions as defined in gradebook.h
 Gradebook::Gradebook(std::string file_name) {
     // ALL FILES WE WANT TO USE HAVE TO BE IN THE GRADES FOLDER
@@ -93,4 +93,111 @@ bool Gradebook::get_grade_individual(std::string name_assignment) {
     }
 
 }
+//gets all grades from specific category selected by user and returns the overall
+//point sum for that category  
+float get_category_total(std::string category){
+    std::vector<int>labGrades;
+    float sumPoints; 
+    if(this->category = "Lab"){
+        //going through category list and storing indices that match the category entered
+        //if category matches the user input, it adds the points at current index to
+        //the labGrades vector
+        for(int i = 0; i < categoryList.size(); i++){
+            if(categoryList[i] == category){
+                labGrades.push_back(earned_points[i]);
+            }
+        }
+        //going through labGrades vector and summing values for particular category
+        for(int j = 0; j < labGrades.size(); j++){
+            sumPoints += labGrades[j]; 
+        }
+        //clearing the labGrades vector for next category input use
+        labGrades.clear();
+
+        //returning the total points earned for the category
+        return sumPoints; 
+    }
+    else if(this->category = "Assignment"){
+          //going through category list and storing indices that match the category entered
+        //if category matches the user input, it adds the points at current index to
+        //the assignmentGrades vector
+        for(int i = 0; i < categoryList.size(); i++){
+            if(categoryList[i] == category){
+                assignmentGrades.push_back(earned_points[i]);
+            }
+        }
+        //going through assignmentGrades vector and summing values for particular category
+        for(int j = 0; j < assignmentGrades.size(); j++){
+            sumPoints += assignmentGrades[j]; 
+        }
+        //clearing the assignmentGrades vector for next category input use
+        assignmentGrades.clear();
+
+        //returning the total points earned for the category
+        return sumPoints;
+    }
+    else if(this->category = "Project 1"){
+          //going through category list and storing indices that match the category entered
+        //if category matches the user input, it adds the points at current index to
+        //the proj1Grades vector
+        for(int i = 0; i < categoryList.size(); i++){
+            if(categoryList[i] == category){
+                proj1Grades.push_back(earned_points[i]);
+            }
+        }
+        //going through proj1Grades vector and summing values for particular category
+        for(int j = 0; j < proj1Grades.size(); j++){
+            sumPoints += proj1Grades[j]; 
+        }
+        //clearing the proj1Grades vector for next category input use
+        proj1Grades.clear();
+
+        //returning the total points earned for the category
+        return sumPoints;
+    }
+    else if(this->category = "Project 2"){
+        //going through category list and storing indices that match the category entered
+        //if category matches the user input, it adds the points at current index to
+        //the proj1Grades vector
+        for(int i = 0; i < categoryList.size(); i++){
+            if(categoryList[i] == category){
+                proj2Grades.push_back(earned_points[i]);
+            }
+        }
+        //going through proj2Grades vector and summing values for particular category
+        for(int j = 0; j < proj2Grades.size(); j++){
+            sumPoints += proj2Grades[j]; 
+        }
+        //clearing the proj2Grades vector for next category input use
+        proj2Grades.clear();
+
+        //returning the total points earned for the category
+        return sumPoints;
+    }
+    else if(this->category = "Exam"){
+          //going through category list and storing indices that match the category entered
+        //if category matches the user input, it adds the points at current index to
+        //the examGrades vector
+        for(int i = 0; i < categoryList.size(); i++){
+            if(categoryList[i] == category){
+                examGrades.push_back(earned_points[i]);
+            }
+        }
+        //going through examGrades vector and summing values for particular category
+        for(int j = 0; j < examGrades.size(); j++){
+            sumPoints += examGrades[j]; 
+        }
+        //clearing the labGrades vector for next category input use
+        examGrades.clear();
+
+        //returning the total points earned for the category
+        return sumPoints;
+    }else{
+        std::cout << "Error"; //TEMPORARY CONDITIONAL 
+    }
+    //resetting sumPoints back to 0
+    sumPoints = 0; 
+    return 0; 
+}
+
 

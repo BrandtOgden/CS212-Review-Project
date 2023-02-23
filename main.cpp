@@ -29,5 +29,11 @@ int main() {
         std::cin >> name_assignment;
     }
 
+    //Asks user to enter category they want to see their list of grades for
+    //Also returns the total grade for that particular category
+    std::string category; 
+    std::cout << "Enter a category type that you would like to see all grades from:"
+    std::cin >> category; 
+    float get_category_total(std::string category);
 
 }
