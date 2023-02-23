@@ -4,7 +4,7 @@
 class HelperFunctions {
 public:
     // Takes in total points and earned points and returns a letter grade
-    static std::string get_letter_grade(float pct) {
+    static std::string get_letter_grade(int pct) {
         if (pct >= 94) {
             return "A";
         } else if (pct < 94 && pct >= 90) {

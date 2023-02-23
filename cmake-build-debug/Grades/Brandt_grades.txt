@@ -1,4 +1,4 @@
 Brandt Ogden
-Assignment A2 50 true
-Assignment A3 30 true
-Assignment A4 20 true
+Assignment A2 50 completed
+Assignment A3 30 completed
+Assignment A4 20 not-completed

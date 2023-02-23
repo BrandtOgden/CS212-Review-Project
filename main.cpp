@@ -22,6 +22,9 @@ int main() {
         std::cin >> choice;
     }
 
+    // Variable to store the gradebook
+    Gradebook* gradebook;
+
     // Handles the different choices that the user has
     if (choice == "1") {
         std::cout << "Which person's gradebook would you like to open?" << std::endl;
@@ -38,14 +41,14 @@ int main() {
         }
         // Does things based on the person_choice
         if (person_choice == "a") {
-            Gradebook gradebook("RyanB_grades.txt");
+            gradebook = new Gradebook("RyanB_grades.txt");
         } else if (person_choice == "b") {
-            Gradebook gradebook("RyanS_grades.txt");
+            gradebook = new Gradebook("RyanS_grades.txt");
         } else if (person_choice == "c") {
-            Gradebook gradebook("Jake_grades.txt");
+            gradebook = new Gradebook("Jake_grades.txt");
         } else {
             // Choice d
-            Gradebook gradebook("Brandt_grades.txt");
+            gradebook = new Gradebook("Brandt_grades.txt");
         }
     } else {
         // Remind the user to make sure the file is in the right place
@@ -62,15 +65,17 @@ int main() {
         // Add a check for whether the file is in a valid format
 
         // Creates the gradebook
-        Gradebook gradebook(file_name);
+        gradebook = new Gradebook(file_name);
     }
 
 
     /* There will be a menu that will be displayed so the user can choose a number. For certain options, a sub-menu will open
     1- Get Grade
      1a- for getting the current course grade
-     2a- for getting the course grade and total grade for each category
-     3a- for getting the course grade and all grades on assignments for each category
+     1b- for getting the course grade and total grade for each category
+     1c- for getting the course grade and all grades on assignments for each category
+     1d- for getting the grade of an individual category
+     1e- for getting the grade of an individual assignment
     2- List assignments
      2a- for listing all assignments in the gradebook
      2b- listing all assignments in a specific category
@@ -106,6 +111,71 @@ int main() {
     std::cout << "    3 - Create a new assignment" << std::endl;
     std::cout << "    4 - Edit an existing assignment" << std::endl;
     std::cout << "    5 - Remove an assignment" << std::endl;
+
+    // Get input from user and check for valid form
+    std::string gradebook_choice;
+    std::cin >> gradebook_choice;
+    while (gradebook_choice != "1" && gradebook_choice != "2" && gradebook_choice != "3" && gradebook_choice != "4" && gradebook_choice != "5") {
+        std::cout << "Invalid option, try again!" << std::endl;
+        std::cin >> gradebook_choice;
+    }
+
+    // Do things with that choice
+    if (gradebook_choice == "1") {
+        // Give the user the choice for different options to do
+        std::cout << "What grade would you like?" << std::endl;
+        std::cout << "    a - Your overall course grade" << std::endl;
+        std::cout << "    b - Your overall course grade and the grade of each category" << std::endl;
+        std::cout << "    c - Your overall course grade, grade of each category, and all the grades of the different deliverables" << std::endl;
+        std::cout << "    d - Your grade for one specific category" << std::endl;
+        std::cout << "    e - Your grade for a specific deliverable" << std::endl;
+
+        // Checks for a valid option
+        std::string grade_choice;
+        std::cin >> grade_choice;
+        while (grade_choice != "a" && grade_choice != "b" && grade_choice != "c" && grade_choice != "d" && grade_choice != "e") {
+            std::cout << "Invalid option, try again!" << std::endl;
+            std::cin >> gradebook_choice;
+        }
+
+        // Does things based on the choice
+        if (grade_choice == "a") {
+            // TODO call get_total_grade()
+        } else if (grade_choice == "b") {
+            // TODO call get_total_grade and get_category_grade for each category
+        } else if (grade_choice == "c") {
+            // TODO call get_total_grade, get_category_grade and get_individual_grade
+        } else if (grade_choice == "d") {
+            //TODO Ask what category the user would like to output; do error checking
+            // Call get_category_grade using that category
+        } else {
+            // Choice e
+            // Prompts the user to enter an assignment
+            std::string name_deliverable;
+            std::cout << "Enter the name of an assignment:" << std::endl;
+            std::cin >> name_deliverable;
+            while (gradebook->get_grade_individual(name_deliverable) == -1) {
+                std::cout << "There is not an assignment called " << name_deliverable <<  " try again!" << std::endl;
+                std::cin >> name_deliverable;
+            }
+
+            // Calculates and outputs the grade
+            int pct = gradebook->get_grade_individual(name_deliverable);
+            std::string letter_grade = HelperFunctions::get_letter_grade(pct);
+            std:: cout << "Your grade for " << name_deliverable << " is a " << letter_grade << std::endl;
+
+        }
+    } else if (gradebook_choice == "2") {
+
+    } else if (gradebook_choice == "3") {
+
+    } else if (gradebook_choice == "4") {
+
+    } else {
+        // Option 5
+
+    }
+
 
     //TODO
     // Continue working on main loop and have it do the different options that Ryan specified

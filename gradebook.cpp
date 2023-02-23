@@ -21,21 +21,27 @@ Gradebook::Gradebook(std::string file_name) {
         // Tokenize each line to get category title etc...
         std::stringstream line_stream(line);
         // Variables to temporarily hold the tokens
-        std::string category, title_assignment;
-        int earned_points;
-        bool completed;
+        std::string temp_category;
+        std::string temp_title_assignment;
+        int temp_earned_points;
+        // Needs to be a string so we can get input from the text file
+        std::string temp_completed;
         // Loop until there are no more tokens in line_stream
         while (line_stream.good()) {
-            line_stream >> category;
-            line_stream >> title_assignment;
-            line_stream >> earned_points;
-            line_stream >> completed;
+            line_stream >> temp_category;
+            line_stream >> temp_title_assignment;
+            line_stream >> temp_earned_points;
+            line_stream >> temp_completed;
 
             // Add them to their respective class variables
-            this->categoryList.push_back(category);
-            this->title_assignment.push_back(title_assignment);
-            this->earned_points.push_back(earned_points);
-            this->completed.push_back(completed);
+            this->categoryList.push_back(temp_category);
+            this->title_assignment.push_back(temp_title_assignment);
+            this->earned_points.push_back(temp_earned_points);
+            if (temp_completed == "completed") {
+                this->completed.push_back(true);
+            } else {
+                this->completed.push_back(false);
+            }
         }
     }
 }
@@ -51,13 +57,13 @@ void Gradebook::list_assignments() {
 // Returns the percentage of the grade of the assignment specified
 // Returns -1 if there is not an assignment called name_assignment
 // Returns -2 if the assignment has not been completed yet
-int Gradebook::get_grade_individual(std::string name_assignment) {
+int Gradebook::get_grade_individual(std::string name_deliverable) {
     // variable to hold the value of total points
     int total_points = -1;
     // Variable to hold the index of the assignment we are dealing with
     int index = -1;
     for (int i = 0; i < this->title_assignment.size(); i++) {
-        if (this->title_assignment[i] == name_assignment) {
+        if (this->title_assignment[i] == name_deliverable) {
             index = i;
             break;
         }
@@ -66,7 +72,6 @@ int Gradebook::get_grade_individual(std::string name_assignment) {
 
     // Checks whether the name of assignment has been found
     if (index == -1) {
-        std::cout << "There is not an assignment called " << name_assignment <<  " try again!" << std::endl;
         return -1;
     } else if (!this->completed[index]) {
         std::cout << "This assignment has not been completed yet!" << std::endl;
