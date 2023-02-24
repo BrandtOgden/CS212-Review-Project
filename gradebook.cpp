@@ -105,10 +105,10 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
 /*
 //gets all grades from specific category selected by user and returns the overall
 //point sum for that category  
-float get_category_total(std::string category){
+float Gradebook::get_category_total(std::string category){
     std::vector<int>labGrades;
     float sumPoints; 
-    if(this->category = "Lab"){
+    if(category == "Lab"){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the labGrades vector
@@ -127,7 +127,7 @@ float get_category_total(std::string category){
         //returning the total points earned for the category
         return sumPoints; 
     }
-    else if(this->category = "Assignment"){
+    else if(category == "Assignment"){
           //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the assignmentGrades vector
@@ -146,7 +146,7 @@ float get_category_total(std::string category){
         //returning the total points earned for the category
         return sumPoints;
     }
-    else if(this->category = "Project 1"){
+    else if(category == "Project 1"){
           //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
@@ -165,7 +165,7 @@ float get_category_total(std::string category){
         //returning the total points earned for the category
         return sumPoints;
     }
-    else if(this->category = "Project 2"){
+    else if(category == "Project 2"){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
@@ -184,7 +184,7 @@ float get_category_total(std::string category){
         //returning the total points earned for the category
         return sumPoints;
     }
-    else if(this->category = "Exam"){
+    else if(category == "Exam"){
           //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the examGrades vector
@@ -207,7 +207,22 @@ float get_category_total(std::string category){
     }
     //resetting sumPoints back to 0
     sumPoints = 0; 
-    return 0; 
+    return 0;
+}
+float Gradebook::get_total_grade(){
+    float total_points;
+    //calls get_category_total function for each assignment type to get the sum grade of each category
+    float lab_total = get_category_total("Lab");
+    float assign_total = get_category_total("Assignment");
+    float proj1_total = get_category_total("Project 1");
+    float proj2_total = get_category_total("Project 2");
+    float exam_total = get_category_total("Exam");
+
+    //adding all categories to get total and dividing by 10 to get grade within 0-100 scale to check for letter grade
+    total_points = lab_total + assign_total + proj1_total + proj2_total + exam_total;
+    total_points = total_points/10;
+
+    return total_points;
 }
 */
 

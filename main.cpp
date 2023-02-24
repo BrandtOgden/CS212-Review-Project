@@ -141,8 +141,9 @@ int main() {
         // Does things based on the choice
         if (grade_choice == "a") {
             //initializes a total_grade variable and sets it to function call
-            //float grade_return;
-            //grade_return =  get_total_grade();   //what is option is that not already taken in?
+           // float grade_return;
+          //  grade_return =  Gradebook::get_total_grade();
+           // std::cout << "Your total grade for the course is: " << grade_return;
             // TODO call get_total_grade()
         } else if (grade_choice == "b") {
             //float grade_return;
