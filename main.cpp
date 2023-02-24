@@ -52,7 +52,7 @@ int main() {
         }
     } else {
         // Remind the user to make sure the file is in the right place
-        std::cout << "Make sure your file is in the Grades folder, /cmake-build-debug/Grades" << std::endl;
+        std::cout << "Make sure your file is in the Grades folder, /cmake-build-debug/Grades\nRemember to include the file extension." << std::endl;
         // Opens the file specified by the user and does error checking for a valid file
         std::string file_name;
         std::cout << "Enter the name of a file from which you want to create a gradebook: " << std::endl;
