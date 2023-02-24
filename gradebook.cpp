@@ -102,7 +102,7 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
 }
 
 
-/*
+
 //gets all grades from specific category selected by user and returns the overall
 //point sum for that category  
 float Gradebook::get_category_total(std::string category){
@@ -224,5 +224,5 @@ float Gradebook::get_total_grade(){
 
     return total_points;
 }
-*/
+
 
