@@ -112,9 +112,9 @@ float get_category_total(std::string category){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the labGrades vector
-        for(int i = 0; i < categoryList.size(); i++){
-            if(categoryList[i] == category){
-                labGrades.push_back(earned_points[i]);
+        for(int i = 0; i < this->categoryList.size(); i++){
+            if(this->categoryList[i] == category){
+                labGrades.push_back(this->earned_points[i]);
             }
         }
         //going through labGrades vector and summing values for particular category
@@ -131,17 +131,17 @@ float get_category_total(std::string category){
           //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the assignmentGrades vector
-        for(int i = 0; i < categoryList.size(); i++){
-            if(categoryList[i] == category){
-                assignmentGrades.push_back(earned_points[i]);
+        for(int i = 0; i < this->categoryList.size(); i++){
+            if(this->categoryList[i] == category){
+                this->assignmentGrades.push_back(this->earned_points[i]);
             }
         }
         //going through assignmentGrades vector and summing values for particular category
-        for(int j = 0; j < assignmentGrades.size(); j++){
-            sumPoints += assignmentGrades[j]; 
+        for(int j = 0; j < this->assignmentGrades.size(); j++){
+            sumPoints += this->assignmentGrades[j];
         }
         //clearing the assignmentGrades vector for next category input use
-        assignmentGrades.clear();
+        this->assignmentGrades.clear();
 
         //returning the total points earned for the category
         return sumPoints;
@@ -150,17 +150,17 @@ float get_category_total(std::string category){
           //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
-        for(int i = 0; i < categoryList.size(); i++){
-            if(categoryList[i] == category){
-                proj1Grades.push_back(earned_points[i]);
+        for(int i = 0; i < this->categoryList.size(); i++){
+            if(this->categoryList[i] == category){
+                this->proj1Grades.push_back(this->earned_points[i]);
             }
         }
         //going through proj1Grades vector and summing values for particular category
-        for(int j = 0; j < proj1Grades.size(); j++){
-            sumPoints += proj1Grades[j]; 
+        for(int j = 0; j < this->proj1Grades.size(); j++){
+            sumPoints += this->proj1Grades[j];
         }
         //clearing the proj1Grades vector for next category input use
-        proj1Grades.clear();
+        this->proj1Grades.clear();
 
         //returning the total points earned for the category
         return sumPoints;
@@ -169,17 +169,17 @@ float get_category_total(std::string category){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
-        for(int i = 0; i < categoryList.size(); i++){
-            if(categoryList[i] == category){
-                proj2Grades.push_back(earned_points[i]);
+        for(int i = 0; i < this->categoryList.size(); i++){
+            if(this->categoryList[i] == category){
+                this->proj2Grades.push_back(this->earned_points[i]);
             }
         }
         //going through proj2Grades vector and summing values for particular category
-        for(int j = 0; j < proj2Grades.size(); j++){
-            sumPoints += proj2Grades[j]; 
+        for(int j = 0; j < this->proj2Grades.size(); j++){
+            sumPoints += this->proj2Grades[j];
         }
         //clearing the proj2Grades vector for next category input use
-        proj2Grades.clear();
+        this->proj2Grades.clear();
 
         //returning the total points earned for the category
         return sumPoints;
@@ -188,17 +188,17 @@ float get_category_total(std::string category){
           //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the examGrades vector
-        for(int i = 0; i < categoryList.size(); i++){
-            if(categoryList[i] == category){
-                examGrades.push_back(earned_points[i]);
+        for(int i = 0; i < this->categoryList.size(); i++){
+            if(this->categoryList[i] == category){
+                this->examGrades.push_back(this->earned_points[i]);
             }
         }
         //going through examGrades vector and summing values for particular category
-        for(int j = 0; j < examGrades.size(); j++){
-            sumPoints += examGrades[j]; 
+        for(int j = 0; j < this->examGrades.size(); j++){
+            sumPoints += this->examGrades[j];
         }
         //clearing the labGrades vector for next category input use
-        examGrades.clear();
+        this->examGrades.clear();
 
         //returning the total points earned for the category
         return sumPoints;
@@ -208,6 +208,6 @@ float get_category_total(std::string category){
     //resetting sumPoints back to 0
     sumPoints = 0; 
     return 0; 
-}  */
-
+}
+*/
 

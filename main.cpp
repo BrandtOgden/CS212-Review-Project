@@ -140,12 +140,23 @@ int main() {
 
         // Does things based on the choice
         if (grade_choice == "a") {
+            //initializes a total_grade variable and sets it to function call
+            //float grade_return;
+            //grade_return =  get_total_grade();   //what is option is that not already taken in?
             // TODO call get_total_grade()
         } else if (grade_choice == "b") {
+            //float grade_return;
+            //float category_total;
+            //grade_return = get_total_grade();
+           // get_category_total
             // TODO call get_total_grade and get_category_grade for each category
         } else if (grade_choice == "c") {
+            //float grade_return;
+            //grade_return = get_total_grade();
             // TODO call get_total_grade, get_category_grade and get_individual_grade
         } else if (grade_choice == "d") {
+            //float grade_return;
+            //grade_return = get_total_grade();
             //TODO Ask what category the user would like to output; do error checking
             // Call get_category_grade using that category
         } else {
