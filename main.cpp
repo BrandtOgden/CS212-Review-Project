@@ -142,45 +142,45 @@ int main() {
         if (grade_choice == "a") {
             //initializes a total_grade variable and sets it to function call
             float grade_return;
-            grade_return =  Gradebook::get_total_grade();
+            grade_return =  gradebook->get_total_grade();
             std::cout << "Your total grade for the course is: " << grade_return;
             // TODO call get_total_grade()
         } else if (grade_choice == "b") {
-            float grade_return = Gradebook::get_total_grade();
-            float lab_total = Gradebook::get_category_total("Lab");
-            float assign_total = Gradebook::get_category_total("Assignment");
-            float proj1_total = Gradebook::get_category_total("Project 1");
-            float proj2_total = Gradebook::get_category_total("Project 2");
-            float exam_total = Gradebook::get_category_total("Exam");
+            float grade_return = gradebook->get_total_grade();
+            float lab_total = gradebook->get_category_total("Lab");
+            float assign_total = gradebook->get_category_total("Assignment");
+            float proj1_total = gradebook->get_category_total("Project 1");
+            float proj2_total = gradebook->get_category_total("Project 2");
+            float exam_total = gradebook->get_category_total("Exam");
 
            //outputting overall course grade and grade for each category
-            std::cout << "Your total grade for the course is: " << grade_return;
-            std::cout << "Your total lab grade is: " << lab_total;
-            std::cout << "Your total assignment grade is: " << assign_total;
-            std::cout << "Your total project 1 grade is: " << proj1_total;
-            std::cout << "Your total project 2 grade is: " << proj2_total;
-            std::cout << "Your total exam grade is: " << exam_total;
+            std::cout << "Your total grade for the course is: " << grade_return << std::endl;
+            std::cout << "Your total lab grade is: " << lab_total << std::endl;
+            std::cout << "Your total assignment grade is: " << assign_total << std::endl;
+            std::cout << "Your total project 1 grade is: " << proj1_total << std::endl;
+            std::cout << "Your total project 2 grade is: " << proj2_total << std::endl;
+            std::cout << "Your total exam grade is: " << exam_total << std::endl;
 
 
             // TODO call get_total_grade and get_category_grade for each category
         } else if (grade_choice == "c") {
-            float grade_return = Gradebook::get_total_grade();
-            float lab_total = Gradebook::get_category_total("Lab");
-            float assign_total = Gradebook::get_category_total("Assignment");
-            float proj1_total = Gradebook::get_category_total("Project 1");
-            float proj2_total = Gradebook::get_category_total("Project 2");
-            float exam_total = Gradebook::get_category_total("Exam");
+            float grade_return = gradebook->get_total_grade();
+            float lab_total = gradebook->get_category_total("Lab");
+            float assign_total = gradebook->get_category_total("Assignment");
+            float proj1_total = gradebook->get_category_total("Project 1");
+            float proj2_total = gradebook->get_category_total("Project 2");
+            float exam_total = gradebook->get_category_total("Exam");
 
             //total grade
-            float total_grade = Gradebook::get_total_grade();
+            float total_grade = gradebook->get_total_grade();
             //outputting overall course grade and grade for each category
             std::cout << "Your total grade for the course is: " << grade_return << std::endl;
-            std::cout << "Your total lab grade is: " << lab_total;
-            std::cout << "Your total assignment grade is: " << assign_total;
-            std::cout << "Your total project 1 grade is: " << proj1_total;
-            std::cout << "Your total project 2 grade is: " << proj2_total;
+            std::cout << "Your total lab grade is: " << lab_total << std::endl;
+            std::cout << "Your total assignment grade is: " << assign_total << std::endl;
+            std::cout << "Your total project 1 grade is: " << proj1_total << std::endl;
+            std::cout << "Your total project 2 grade is: " << proj2_total << std::endl;
             std::cout << "Your total exam grade is: " << exam_total << std::endl;
-            std::cout << "Your total grade for the course is: " << total_grade;
+            std::cout << "Your total grade for the course is: " << total_grade << std::endl;
 
 
             // TODO call get_total_grade, get_category_grade and get_individual_grade
@@ -191,9 +191,10 @@ int main() {
             std::cout << "Enter a category you want to see the grade for: "<< std::endl << "(enter 'Lab', 'Assignment', 'Project 1', Project 2', or 'Exam')";
             //while the category input does not equal one of the correct category options, it continues to ask for input
             while(single_category != "Lab" or single_category != "Assignment" or single_category != "Project 1"  or single_category != "Project 2" or single_category != "Exam" ){
-                std::cin >> "Invalid category, please try again:" >> single_category;
+                std::cin >> single_category;
+                std::cout <<  "Invalid category, please try again:";
             }
-            grade_return = Gradebook::get_total_grade(single_category);
+            grade_return = gradebook->get_category_total(single_category);
             //grade_return = get_total_grade();
             //TODO Ask what category the user would like to output; do error checking
             // Call get_category_grade using that category
