@@ -1,3 +1,0 @@
-C:/Users/jaked/CS212-Review-Project/cmake-build-debug/CMakeFiles/CS212_Review_Project.dir
-C:/Users/jaked/CS212-Review-Project/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/jaked/CS212-Review-Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

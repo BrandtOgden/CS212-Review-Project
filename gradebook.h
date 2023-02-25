@@ -39,7 +39,7 @@ public:
     float get_category_total(std::string category);
     // Returns the total grade in different ways as defined by the project guidelines
     // User can choose which option to do
-    float get_total_grade(int option);
+    float get_total_grade();
     // User has option to edit existing assignment or create a new assignment
     // Automatically write new changes to the text file
     void edit(int option);
