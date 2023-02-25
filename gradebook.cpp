@@ -8,6 +8,8 @@ Gradebook::Gradebook(std::string file_name) {
     // The next lines should be in the format,
     // Category Title EarnedPoints IsCompleted
 
+    this->file_name = file_name;
+
     // Opens the file
     std::ifstream infile("Grades/" + file_name);
 
@@ -99,6 +101,18 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
         return pct;
     }
 
+}
+
+std::string Gradebook::new_assignment(std::string category, std::string name, int points_earned, std::string is_completed) {
+    // open the gradebook file in append mode
+    std::ofstream gradebook_file;
+
+    // write a new line to the file with all the information from the user
+    // return that the assignment has been created
+    gradebook_file.open("Grades/" + file_name, std::fstream::app);
+    gradebook_file << "\n" + category + " " + name + " " + std::to_string(points_earned) + " " + is_completed;
+
+    return "New assignment created";
 }
 
 

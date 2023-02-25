@@ -48,6 +48,7 @@ public:
     std::vector<std::string> get_title_assignment() {return this->title_assignment;}
     std::vector<int> get_earned_points() {return this->earned_points;}
     std::vector<bool> get_completed() {return this->completed;}
+    std::string new_assignment(std::string category, std::string name, int points_earned, std::string is_completed);
 };
 
 

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "gradebook.h"
 
 int main() {
@@ -179,6 +180,37 @@ int main() {
     } else if (gradebook_choice == "2") {
 
     } else if (gradebook_choice == "3") {
+        // Makes a new assignment by writing to the gradebook file with certain criteria from the user
+        std::string category;
+        std::string name;
+        int points_earned = -1;
+        std::string is_completed = "undefined";
+
+        std::cout << "Enter the category of the assignment:" << std::endl;
+        std::cin >> category;
+        std::cout << "Enter the name of the assignment:" << std::endl;
+        std::cin >> name;
+        std::cout << "Enter the number of points earned for the assignment:" << std::endl;
+        std::cin >> points_earned;
+        // error checking if a number isn't entered or it's a negative number
+        // TODO Don't know how to do this
+        while (std::cin.fail()) {
+            std::cout << std::to_string(points_earned) << " is not a valid number, try again!\nEnter the number of points earned for the assignment:" << std::endl;
+        }
+
+        /*std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
+        std::cin >> is_completed;
+        // error checking to make sure yes or no is entered. completed or not completed is then applied accordingly
+        while (is_complete != "y" || is_completed != "n") {
+            std::cout << is_completed << " is not a valid entry. Enter y/n:" << std::endl;
+            std::cin >> is_completed;
+        }
+        if (is_completed == "y") {
+            is_completed = "completed";
+        } else {
+            is_completed = "not-completed";
+        }
+        std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;*/
 
     } else if (gradebook_choice == "4") {
 
