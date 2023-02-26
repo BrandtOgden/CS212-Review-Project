@@ -253,7 +253,70 @@ int main() {
         std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;*/
 
     } else if (gradebook_choice == "4") {
+        //choice 4 allows editing the grade of a single assignment and completion status of an assignment
+        std::string name_deliverable;
+        std::cout << "Enter the name of an assignment:" << std::endl;
+        std::cin >> name_deliverable;
+        while (gradebook->get_grade_individual(name_deliverable) == -1) {
+            std::cout << "There is not an assignment called " << name_deliverable <<  " try again!" << std::endl;
+            std::cin >> name_deliverable;
+        }
 
+        //Menu allows choice between editing modes
+        std::cout << "What would you like to edit about this deliverable?" << "\n";
+        std::cout << "    a - Edit the Grade" << "\n";
+        std::cout << "    b - Edit the completion status" << "\n";
+        std::string choice;
+        std::cin >> choice;
+
+        if(choice == "a"){
+            int index = -1;
+            std::vector<std::string> categoryList = gradebook->get_category();
+            std::vector<std::string> assignmentList = gradebook->get_title_assignment();
+            for (int i = 0; i < categoryList.size(); i++) {
+                if (assignmentList[i] == name_deliverable) {
+                    index = i;
+                    break;
+                }
+            }
+
+            int total_points;
+            if (categoryList[index] == "Assignment") total_points = 50;
+            if (categoryList[index] == "Lab") total_points = 20;
+            if (categoryList[index] == "Project1") total_points = 150;
+            if (categoryList[index] == "Project2") total_points = 350;
+            if (categoryList[index] == "Exam") total_points = 100;
+
+            int new_grade;
+            std::cout << "Enter the new grade for " << name_deliverable << "\nMaximum points on this deliverable is " << total_points << ".\n";
+            std::cin >> new_grade;
+            while (new_grade < 0 or new_grade > total_points){
+                std::cout << "Invalid input, try again.\n";
+                std::cin >> new_grade;
+            }
+
+            gradebook->edit_grade(name_deliverable, new_grade);
+            std::cout << "Successfully updated grade.\n";
+
+        } else if (choice == "b"){
+            std::string completion_str;
+            std::cout << "Should this deliverable be completed or not-completed?\nEnter 'completed' or 'not-completed'.\n";
+            std::cin >> completion_str;
+            bool good_input = false;
+            if(completion_str != "completed" or completion_str != "not-completed") good_input = true;
+            while (!good_input) {
+                std::cout << "Invalid input, try again.\n";
+                std::cin >> completion_str;
+                if(completion_str != "completed" or completion_str != "not-completed") good_input = true;
+            }
+
+            bool completion;
+            if (completion_str == "completed") completion = true;
+            else completion = false;
+
+            gradebook->edit_completion(name_deliverable, completion);
+            std::cout << "Successfully updated completion.\n";
+        }
     } else {
         // Option 5
 

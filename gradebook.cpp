@@ -242,4 +242,52 @@ float Gradebook::get_total_grade(){
     return total_points;
 }
 
+void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
+    int index = -1;
+    for (int i = 0; i < this->title_assignment.size(); i++) {
+        if (this->title_assignment[i] == name_assignment) {
+            index = i;
+            break;
+        }
+    }
+
+    this->earned_points[index] = new_earned_points;
+
+    push_changes();
+
+}
+
+void Gradebook::edit_completion(std::string name_assignment, bool new_completion){
+    int index = -1;
+    for (int i = 0; i < this->title_assignment.size(); i++) {
+        if (this->title_assignment[i] == name_assignment) {
+            index = i;
+            break;
+        }
+    }
+
+    this->completed[index] = new_completion;
+
+    push_changes();
+
+}
+
+void Gradebook::push_changes() {
+    std::string out_file = this->name + "\n";
+    for (int i = 0; i < this->title_assignment.size(); i++){
+        std::string temp_category = this->categoryList[i];
+        std::string temp_title = this->title_assignment[i];
+        std::string temp_earned = std::to_string(this->earned_points[i]);
+        std::string temp_complete;
+        if (this->completed[i]) temp_complete = "completed";
+        else temp_complete = "not-completed";
+        out_file+=(temp_category + " " + temp_title + " " + temp_earned + " " + temp_complete + "\n");
+    }
+    std::ofstream myfile;
+    myfile.open("Grades/" + this->file_name);
+    myfile << out_file;
+    myfile.close();
+    return;
+}
+
 

@@ -42,7 +42,9 @@ public:
     float get_total_grade();
     // User has option to edit existing assignment or create a new assignment
     // Automatically write new changes to the text file
-    void edit(int option);
+    void edit_grade(std::string name_assignment, int new_earned_points);
+    void edit_completion(std::string name_assignment, bool new_completion);
+    void push_changes();
     // Getters
     std::vector<std::string> get_category() {return this->categoryList;}
     std::vector<std::string> get_title_assignment() {return this->title_assignment;}
