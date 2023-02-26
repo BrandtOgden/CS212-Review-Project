@@ -105,6 +105,8 @@ int main() {
 
     // after the user enters a choice it will run the function and ask the user to enter another input. They can enter 'quit' to stop
 
+
+
     // Start of the main loop that will do different things to do the gradebook
     std::cout << "What would you like to do with the gradebook?" << std::endl;
     std::cout << "    1 - Get your grade" << std::endl;
@@ -213,9 +215,12 @@ int main() {
 
             // Calculates and outputs the grade
             int pct = gradebook->get_grade_individual(name_deliverable);
-            std::string letter_grade = HelperFunctions::get_letter_grade(pct);
-            std:: cout << "Your grade for " << name_deliverable << " is a " << letter_grade << std::endl;
-
+            if (pct == -2) {
+                std::cout << "This assignment has not been completed!" << std::endl;
+            } else {
+                std::string letter_grade = HelperFunctions::get_letter_grade(pct);
+                std::cout << "Your grade for " << name_deliverable << " is a " << letter_grade << std::endl;
+            }
         }
     } else if (gradebook_choice == "2") {
 
@@ -323,27 +328,9 @@ int main() {
     }
 
 
+
     //TODO
     // Continue working on main loop and have it do the different options that Ryan specified
 
-
-    /*
-    // Gets the grade of an assignment based on what user enters
-    std::string name_assignment;
-    std::cout << "Enter the name of an assignment that you would like to see the grade: " << std::endl;
-    std::cin >> name_assignment;
-    // Loop through until we get a valid assignment name
-    while (!my_gradebook.get_grade_individual(name_assignment)) {
-        std::cin >> name_assignment;
-    }
-
-    //Asks user to enter category they want to see their list of grades for
-    //Also returns the total grade for that particular category
-    std::string category; 
-    std::cout << "Enter a category type that you would like to see all grades from:";
-    std::cin >> category; 
-    float get_category_total(std::string category);
-
-     */
 
 }
