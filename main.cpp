@@ -136,18 +136,19 @@ int main() {
         std::cin >> grade_choice;
         while (grade_choice != "a" && grade_choice != "b" && grade_choice != "c" && grade_choice != "d" && grade_choice != "e") {
             std::cout << "Invalid option, try again!" << std::endl;
-            std::cin >> gradebook_choice;
+            std::cin >> grade_choice;
         }
 
         // Does things based on the choice
         if (grade_choice == "a") {
             //initializes a total_grade variable and sets it to function call
-            float grade_return;
-            grade_return =  gradebook->get_total_grade();
+            float grade_return = gradebook->get_total_grade();
             std::cout << "Your total grade for the course is: " << grade_return;
             // TODO call get_total_grade()
         } else if (grade_choice == "b") {
+            //overall course grade
             float grade_return = gradebook->get_total_grade();
+            //grade of each category
             float lab_total = gradebook->get_category_total("Lab");
             float assign_total = gradebook->get_category_total("Assignment");
             float proj1_total = gradebook->get_category_total("Project 1");
