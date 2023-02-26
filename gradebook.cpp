@@ -76,7 +76,6 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
     if (index == -1) {
         return -1;
     } else if (!this->completed[index]) {
-        std::cout << "This assignment has not been completed yet!" << std::endl;
         return -2;
     } else {
         // Check for what the category is because that will change the total points
@@ -91,10 +90,6 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
         } else if (this->categoryList[index] == "Exam") {
             total_points = 100;
         }
-
-        //TODO
-        // Add a check for whether or not total points has been initialized
-        // If it equals negative one it means that there is something wrong with the input file
 
         // Calculates the percentage
         int pct = std::round((float(this->earned_points[index]) / float(total_points)) * 100);
@@ -122,7 +117,7 @@ std::string Gradebook::new_assignment(std::string category, std::string name, in
 //TODO Fix math for getting sum
 float Gradebook::get_category_total(std::string category){
     std::vector<int>labGrades;
-    float sumPoints; 
+    float sumPoints = 0;
     if(category == "Lab"){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
