@@ -356,19 +356,22 @@ int main() {
             }
         }
 
-        /*std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
+        std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
         std::cin >> is_completed;
-        // error checking to make sure yes or no is entered. completed or not completed is then applied accordingly
-        while (is_complete != "y" || is_completed != "n") {
-            std::cout << is_completed << " is not a valid entry. Enter y/n:" << std::endl;
-            std::cin >> is_completed;
+        while (is_completed != "y" || is_completed != "n"){
+            std::cout << "Invalid input, try again.\n";
+            std::cin >> points_earned;
+            while(true){
+                if(std::cin.fail()) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                    std::cout << "Invalid input, try again.\n";
+                    std::cin >> points_earned;
+                }
+                if(!std::cin.fail()) break;
+            }
         }
-        if (is_completed == "y") {
-            is_completed = "completed";
-        } else {
-            is_completed = "not-completed";
-        }
-        std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;*/
+        std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;
 
     } else if (gradebook_choice == "4") {
         //choice 4 allows editing the grade of a single assignment and completion status of an assignment

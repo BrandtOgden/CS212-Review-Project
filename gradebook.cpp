@@ -263,7 +263,7 @@ std::string Gradebook::new_assignment(std::string category, std::string name, in
         this->completed.push_back(false);
     }
 
-    return "New assignment created";
+    return "Assignment \"" + name + "\" has been assignment created";
 }
 
 
