@@ -252,7 +252,6 @@ int main() {
                 }
             }
         }
-        while
         std::cout << "Enter the number of points earned for the assignment:" << std::endl;
         std::cin >> points_earned;
         while(true){
