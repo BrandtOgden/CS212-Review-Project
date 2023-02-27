@@ -65,9 +65,10 @@ If you are not able to compile and run the program within CLion, simply download
 gradebook.cpp, help_functions.cpp, main.cpp, and gradebook.h from the Github
 repository. Once in g++, access the terminal and type in the following g++
 argument (Note, if the g++ compiler is not installed, make sure to install
-and configure before running this command line):   
+and configure before running this command line):  
+  ```
   g++ -std=c+11 gradebook.cpp helper_functions.cpp main.cpp -o prog && ./prog  
-    
+   ``` 
 
 ## Runtime Instructions 
 During runtime different options will be shown to allow you to do different things 
@@ -77,68 +78,71 @@ to continue until you give a valid input. Different examples of inputs are shown
 the next section.  The following provides the specific options paths given in the
 menu:  
   
-Upon running the program, the user will be presented with two options:  
-    
+Upon running the program, the user will be presented with two options: 
+   
+```
   Type 1 - Open the gradebook of one us  
        2 - Quit  
-     
+    
+```
+        
 Entering option 2 will terminate the program with exit code 0. Entering option 
 1 will present the user with the mock grade text files of the four 
 members of our group. The menu option will look as follows:  
-
+```
 Which person's gradebook would you like to open?
     1 - Ryan Brooks  
     2 - Ryan Shilling  
     3 - Jake Dansereau  
     4 - Brandt Ogden  
-
+```
 Entering an option 1-4 prompts the 'main menu' for selecting different viewing 
 options for grades:  
-  
+  ```
 What would you like to do with the gradebook?  
     1 - Get your grade  
     2 - List the current deliverables  
     3 - Create a new assignment  
     4 - Edit an existing assignment  
     5 - Remove an assignment  
-      
+   ```   
 **Option 1**  
 Selecting option 1 will allow the user to get their overall grade for the course.
 They can select various viewing options for their grade as follows:  
-  
+  ```
 What grade would you like?  
     a - Your overall course grade  
     b - Your overall course grade and the grade of each category  
     c - Your overall course grade, grade of each category, and all the grades of the different deliverables  
     d - Your grade for one specific category  
     e - Your grade for a specific deliverable  
-      
+     ``` 
 Selecting option 'a' prints the user's overall course grade numerically and the
 corresponding alphabetical grade.  Selecting option 'b' prints the former along
 with the grade of each specific category's grade. Selecting option 'c' prints the
 former two along with the specific grade of each of the completed assignments from
 the text file.  Selecting option 'd' then prompts the user to enter a specific 
 category as follows:  
-
+```
 Enter a category you want to see the grade for:  
 (enter 'Lab', 'Assignment', 'Project 1', Project 2', or 'Exam')
-
+```
 Entering one of these assignments will output the grade for that specific category.
 Note that the user must enter one of the exact categories from the course, otherwise
 they will again be prompted to enter a valid input. Lastly, selecting option 'e' 
 allows the user to enter a specific deliverable and receive the grade for it as follows:  
-  
+ ``` 
 Enter the name of an assignment:  
-  
+ ``` 
 Note that the user must enter one of the exact categories from the course, otherwise
 they will again be prompted to enter a valid input. After reaching the end of either 
 of these options a-e for option 1, they will be prompted with an option to continue
 in the gradebook or to quit:  
-  
+  ```
 What would you like to do?
 Type 1 - Open the gradebook of one us
      2 - Quit  
-  
+  ```
 **Option 2**  
 Selecting option 2 allows the user to get all of their current deliverables that are 
 in the selected text file. After viewing the deliveries, the user is promped with 
@@ -147,95 +151,95 @@ the option to once again continue or quit, as seen above.
 **Option 3**  
 Selecting option 3 allows the user to enter a specific category in order to create
 a new assignment. Upon selecting 3, type in one of the categories for the course:  
-  
+  ```
 Enter the category of the assignment:  
 Categories:  
     Assignment  
     Lab  
     Project1  
     Project2   
-    
+    ```
 Note that failing to enter a proper assignment name will result in an error and 
 will prompt you to type in a valid assignment. Once a valid assignment is entered, 
 you will be prompted to enter a specific deliverable as follows:  
-  
+  ```
   Enter the name of the assignment:  
-    
+    ```
 If the user repeats a deliverable that is already created/exists in the file, they
 are prompted to enter a different deliverable. Once a unique deliverable is entered, 
 enter the number of points earned for the assignment as follows:  
-  
+  ```
   Enter the number of points earned for the assignment:  
-    
+   ``` 
 Upon entering a valid point amount, you will be prompted to enter whether or not the
 assignment has been completed. Enter 'y' or 'n':   
-  
+  ```
 Has the assignment been completed or not? Enter y/n:  
-  
+  ```
 After entering either 'y' or 'n', you will be delivered the following message:  
-  
+  ```
 Assignment "Lab05" has been assignment created  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-       
+   ```    
 Once again, the user can either continue into the gradebook, or quit. 
   
 **Option 4**
 Selecting option 4 will prompt the user with the following message:  
-    
+    ```
   Enter the name of an assignment:  
-    
+    ```
 Enter a valid assignment, otherwise you will be prompted to enter a
 valid input again.  Entering a valid assignment will prompt the user
 with:  
-
+```
 What would you like to edit about this deliverable?  
     a - Edit the Grade  
     b - Edit the completion status  
-      
+  ```    
 Editing the grade will prompt the user to enter the grade they want to change it to:  
-  
+  ```
   Enter the new grade for A2  
 Maximum points on this deliverable is 50.  
-  
+ ``` 
 The user is then prompted with a message letting them know the grade
 has been updated:  
-  
+  ```
   Successfully updated grade.  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-       
+   ```    
 Once again the user can either quit or go back into the gradebook. Entering 
 option b will edit the completion status, prompting the user to enter either
 'completed' or 'not-completed':  
-  
+  ```
   Should this deliverable be completed or not-completed?  
 Enter 'completed' or 'not-completed'.  
-  
+  ```
 Entering one of those options will successfully update the file and prompt
 the user as follows:  
-  
+  ```
   Successfully updated completion.  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-        
+ ```       
 **Option 5**  
 Entering option 5 will prompt the user will the following:  
-  
+  ```
   What deliverable would you like to remove?  
-    
+   ``` 
 Enter a specific deliverable. If the deliverable is not found
 it will output the error and prompt the  user to enter a correct
 deliverable. If the user enters a deliverable that is found, they
 are prompted with the following example:  
-  
+  ```
   Assignment "A2" has been removed  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-    
+   ``` 
 ## Sample Runs
 
