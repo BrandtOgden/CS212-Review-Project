@@ -95,21 +95,7 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
         int pct = std::round((float(this->earned_points[index]) / float(total_points)) * 100);
         return pct;
     }
-
 }
-
-std::string Gradebook::new_assignment(std::string category, std::string name, int points_earned, std::string is_completed) {
-    // open the gradebook file in append mode
-    std::ofstream gradebook_file;
-
-    // write a new line to the file with all the information from the user
-    // return that the assignment has been created
-    gradebook_file.open("Grades/" + file_name, std::fstream::app);
-    gradebook_file << "\n" + category + " " + name + " " + std::to_string(points_earned) + " " + is_completed;
-
-    return "New assignment created";
-}
-
 
 
 //gets all grades from specific category selected by user and returns the overall
@@ -237,6 +223,13 @@ float Gradebook::get_total_grade(){
     return total_points;
 }
 
+<<<<<<< Updated upstream
+=======
+std::string Gradebook::new_assignment(std::string category, std::string name, int points_earned, std::string is_completed) {
+    // open the gradebook file in append mode
+    std::ofstream gradebook_file;
+=======
+>>>>>>> Stashed changes
 void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
     int index = -1;
     for (int i = 0; i < this->title_assignment.size(); i++) {
@@ -245,6 +238,7 @@ void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
             break;
         }
     }
+<<<<<<< Updated upstream
 
     this->earned_points[index] = new_earned_points;
 
@@ -285,4 +279,99 @@ void Gradebook::push_changes() {
     return;
 }
 
+=======
+>>>>>>> Stashed changes
 
+    this->earned_points[index] = new_earned_points;
+
+    push_changes();
+
+}
+
+void Gradebook::edit_completion(std::string name_assignment, bool new_completion){
+    int index = -1;
+    for (int i = 0; i < this->title_assignment.size(); i++) {
+        if (this->title_assignment[i] == name_assignment) {
+            index = i;
+            break;
+        }
+    }
+
+    this->completed[index] = new_completion;
+
+    push_changes();
+
+}
+
+void Gradebook::push_changes() {
+    std::string out_file = this->name + "\n";
+    for (int i = 0; i < this->title_assignment.size(); i++){
+        std::string temp_category = this->categoryList[i];
+        std::string temp_title = this->title_assignment[i];
+        std::string temp_earned = std::to_string(this->earned_points[i]);
+        std::string temp_complete;
+        if (this->completed[i]) temp_complete = "completed";
+        else temp_complete = "not-completed";
+        out_file+=(temp_category + " " + temp_title + " " + temp_earned + " " + temp_complete + "\n");
+    }
+    std::ofstream myfile;
+    myfile.open("Grades/" + this->file_name);
+    myfile << out_file;
+    myfile.close();
+    return;
+}
+
+    // write a new line to the file with all the information from the user
+    // return that the assignment has been created
+    gradebook_file.open("Grades/" + file_name, std::fstream::app);
+    gradebook_file << "\n" + category + " " + name + " " + std::to_string(points_earned) + " " + is_completed;
+
+    // Add them to their respective class variables
+    this->categoryList.push_back(category);
+    this->title_assignment.push_back(name);
+    this->earned_points.push_back(points_earned);
+    if (is_completed == "completed") {
+        this->completed.push_back(true);
+    } else {
+        this->completed.push_back(false);
+    }
+
+    return "New assignment created";
+}
+
+bool Gradebook::assignment_exists(std::string assignment_name) {
+    for (const auto & i : title_assignment) {
+        if (i == assignment_name) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// returns 0 for an assignment successfully removed and -1 if the assignment doesn't exist
+std::string Gradebook::remove_assignment(std::string remove_name) {
+    if (assignment_exists(remove_name)) {
+        // a new temporary file to hold all the lines
+        std::ofstream temp_file;
+        temp_file.open("Grades/temp_gradebook.txt");
+
+        temp_file << this->name + "\n";
+
+        // write the line from the vectors of the current assignments unless the assignment is the one we want to remove
+        for (int i = 0; i < title_assignment.size(); i++) {
+            if (title_assignment[i] != remove_name) {
+                std::string temp_completed = "completed";
+                if (!completed[i]) {
+                    temp_completed = "not-completed";
+                }
+                temp_file << categoryList[i] + " " + title_assignment[i] + " " + std::to_string(earned_points[i]) + " " + temp_completed + "\n";
+            }
+        }
+        temp_file.close();
+        std::remove(("Grades/" + file_name).c_str());
+        std::rename("Grades/temp_gradebook.txt", ("Grades/" + file_name).c_str());
+        return "Assignment \"" + remove_name + "\" has been removed";
+    } else {
+        return "Assignment \"" + remove_name + "\" does not exist";
+    }
+}

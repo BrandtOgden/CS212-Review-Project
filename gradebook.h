@@ -51,6 +51,8 @@ public:
     std::vector<int> get_earned_points() {return this->earned_points;}
     std::vector<bool> get_completed() {return this->completed;}
     std::string new_assignment(std::string category, std::string name, int points_earned, std::string is_completed);
+    bool assignment_exists(std::string name);
+    std::string remove_assignment(std::string remove_name);
 };
 
 
