@@ -219,7 +219,7 @@ int main() {
                 std::cout << "This assignment has not been completed!" << std::endl;
             } else {
                 std::string letter_grade = HelperFunctions::get_letter_grade(pct);
-                std::cout << "Your grade for " << name_deliverable << " is a " << letter_grade << std::endl;
+                std::cout << "Your grade for " << name_deliverable << " is a " << pct << "% or " << letter_grade << std::endl;
             }
         }
     } else if (gradebook_choice == "2") {
