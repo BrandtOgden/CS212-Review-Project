@@ -44,7 +44,25 @@ did most of the miscellaneous work on it that didn't fit into anyone else's role
 including the ability to remove an assignment.  
 
 ## Compilation Instructions
-To be completed
+There are two options to run the program:  
+**Option 1**  
+To run the program, acess the root directory section of the Github. You can access the 
+following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
+Once on the main repository page, select the 'Code' button at the top right, and copy the link
+to the Github. Alternatively, use this link: https://github.com/BrandtOgden/CS212-Review-Project.git
+Open up Git within CLion, navigate to 'Version Control' at the bottom left hand. In the console
+section, select 'Create Git Repository' and upload the link. You will now have access to all of 
+the files.  You may then proceed to run the program. Note that when you compile the program, make 
+sure you are in the root directory of the repository. 
+  
+**Option 2**  
+If option 1 did not allow you to compile and run the program, simply download
+gradebook.cpp, help_functions.cpp, main.cpp, and gradebook.h from the Github
+repository. Once in g++, access the terminal and type in the following g++
+argument (Note, if the g++ compiler is not installed, make sure to install
+and configure before running this command line):   
+  g++ -std=c+11 gradebook.cpp helper_functions.cpp main.cpp -o prog && ./prog  
+    
 
 ## Runtime Instructions 
 During runtime different options will be shown to allow you to do different things 
