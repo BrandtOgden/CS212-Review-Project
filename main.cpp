@@ -301,7 +301,6 @@ int main() {
             if (categoryList[index] == "Exam") total_points = 100;
 
             int new_grade;
-            bool good_input = true;
             std::cout << "Enter the new grade for " << name_deliverable << "\nMaximum points on this deliverable is " << total_points << ".\n";
             std::cin >> new_grade;
             while(true){
