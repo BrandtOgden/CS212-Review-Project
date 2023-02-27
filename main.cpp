@@ -285,7 +285,9 @@ int main() {
         }
     } else if (gradebook_choice == "2") {
         // Outputs all the different deliverables in the text file
+        std::cout << "Your current assignments are: " << std::endl;
         gradebook->list_assignments();
+
     } else if (gradebook_choice == "3") {
         // Makes a new assignment by writing to the gradebook file with certain criteria from the user
         std::string category;

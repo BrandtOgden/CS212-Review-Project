@@ -253,6 +253,16 @@ std::string Gradebook::new_assignment(std::string category, std::string name, in
     gradebook_file.open("Grades/" + file_name, std::fstream::app);
     gradebook_file << "\n" + category + " " + name + " " + std::to_string(points_earned) + " " + is_completed;
 
+    // add the new assignment to the vectors
+    this->categoryList.push_back(category);
+    this->title_assignment.push_back(name);
+    this->earned_points.push_back(points_earned);
+    if (is_completed == "completed") {
+        this->completed.push_back(true);
+    } else {
+        this->completed.push_back(false);
+    }
+
     return "New assignment created";
 }
 
@@ -335,6 +345,13 @@ std::string Gradebook::remove_assignment(std::string remove_name) {
                     temp_completed = "not-completed";
                 }
                 temp_file << categoryList[i] + " " + title_assignment[i] + " " + std::to_string(earned_points[i]) + " " + temp_completed + "\n";
+            }
+            else {
+                // remove the matching assignment to delete from the vectors
+                this->categoryList.erase(categoryList.begin()+i);
+                this->title_assignment.erase(title_assignment.begin()+i);
+                this->earned_points.erase(earned_points.begin()+i);
+                this->earned_points.erase(earned_points.begin()+i);
             }
         }
         temp_file.close();
