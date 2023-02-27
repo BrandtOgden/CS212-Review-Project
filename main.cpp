@@ -296,11 +296,11 @@ int main() {
         std::cout << "Enter the category of the assignment:" << std::endl;
         std::cin >> category;
         bool good_input = false;
-        if(category != "Assignment" or category != "Lab" or category != "Project1" or category != "Project2" or category != "Exam") good_input = true;
+        if(category == "Assignment" or category == "Lab" or category == "Project1" or category == "Project2" or category == "Exam") good_input = true;
         while (!good_input) {
             std::cout << "Invalid input, try again.\n";
             std::cin >> category;
-            if(category != "Assignment" or category != "Lab" or category != "Project1" or category != "Project2" or category != "Exam") good_input = true;
+            if(category == "Assignment" or category == "Lab" or category == "Project1" or category == "Project2" or category == "Exam") good_input = true;
         }
         std::cout << "Enter the name of the assignment:" << std::endl;
         std::cin >> name;
