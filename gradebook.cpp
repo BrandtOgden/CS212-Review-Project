@@ -83,9 +83,9 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
             total_points = 20;
         } else if (this->categoryList[index] == "Assignment") {
             total_points = 50;
-        } else if (this->categoryList[index] == "Project 1") {
+        } else if (this->categoryList[index] == "Project1") {
             total_points = 150;
-        } else if (this->categoryList[index] == "Project 2") {
+        } else if (this->categoryList[index] == "Project2") {
             total_points = 350;
         } else if (this->categoryList[index] == "Exam") {
             total_points = 100;
