@@ -12,7 +12,7 @@ other features.
 In our first planning session we outlined the different functions that we were 
 going to need in our class along with the different private variables we would 
 need, and started to think about how these functions would be working.
-![Planning](https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg)
+<img src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"  width="400" height="400">
 During this planning session we divided who would do the different functions.
 Brandt worked on the constructor for the gradebook which took input from a file
 and put it into the private vectors associated with the GradeBook class. He also 
