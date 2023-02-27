@@ -253,7 +253,8 @@ int main() {
             }
         }
         std::cout << "Enter the number of points earned for the assignment:" << std::endl;
-        std::cin >> points_earned;
+            std::cin >> points_earned;
+
         while(true){
             if(std::cin.fail()) {
                 std::cin.clear();
@@ -275,7 +276,7 @@ int main() {
             is_completed = "completed";
         } else {
             is_completed = "not-completed";
-        }`
+        }
         std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;*/
 
     } else if (gradebook_choice == "4") {
@@ -321,10 +322,7 @@ int main() {
             if (categoryList[index] == "Exam") total_points = 100;
 
             int new_grade;
-<<<<<<< Updated upstream
-=======
             bool good_input = true;
->>>>>>> Stashed changes
             std::cout << "Enter the new grade for " << name_deliverable << "\nMaximum points on this deliverable is " << total_points << ".\n";
             std::cin >> new_grade;
             while(true){
@@ -378,14 +376,4 @@ int main() {
         std::cin >> assignment_name;
         std::cout << gradebook->remove_assignment(assignment_name);
     }
-
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
-    //TODO
-    // Continue working on main loop and have it do the different options that Ryan specified
-
-
 }
