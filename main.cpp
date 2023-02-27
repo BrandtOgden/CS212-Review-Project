@@ -284,19 +284,12 @@ int main() {
 
         std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
         std::cin >> is_completed;
-        while (is_completed != "y" || is_completed != "n"){
+        while (is_completed != "y" && is_completed != "n"){
             std::cout << "Invalid input, try again.\n";
             std::cin >> points_earned;
-            while(true){
-                if(std::cin.fail()) {
-                    std::cin.clear();
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-                    std::cout << "Invalid input, try again.\n";
-                    std::cin >> points_earned;
-                }
-                if(!std::cin.fail()) break;
-            }
         }
+        if (is_completed == "y") is_completed = "completed";
+        else is_completed = "not-completed";
         std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;
 
     } else if (gradebook_choice == "4") {
@@ -390,9 +383,13 @@ int main() {
             std::cout << "Successfully updated completion.\n";
         }
     } else {
-        std::string assignment_name;
-        std::cout << "Enter the name of the assignment: " << std::endl;
-        std::cin >> assignment_name;
-        std::cout << gradebook->remove_assignment(assignment_name);
+        std::string name_deliverable;
+        std::cout << "What deliverable would you like to remove?" << std::endl;
+        std::cin >> name_deliverable;
+        while (gradebook->get_grade_individual(name_deliverable) == -1) {
+            std::cout << "There is not a deliverable called " << name_deliverable <<  " try again!" << std::endl;
+            std::cin >> name_deliverable;
+        }
+        std::cout << gradebook->remove_assignment(name_deliverable);
     }
 }

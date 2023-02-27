@@ -104,7 +104,6 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
 //gets all grades from specific category selected by user and returns the overall
 //point sum for that category
 float Gradebook::get_category_total(std::string category){
-    std::vector<int>labGrades;
     float sumPoints = 0;
     if(category == "Lab"){
         //going through category list and storing indices that match the category entered
@@ -112,7 +111,7 @@ float Gradebook::get_category_total(std::string category){
         //the labGrades vector
         for(int i = 0; i < this->categoryList.size(); i++){
             if(this->categoryList[i] == category and completed[i] == true){ //only pushes back if completed
-                labGrades.push_back(this->earned_points[i]);
+                this->labGrades.push_back(this->earned_points[i]);
             }
         }
         //going through labGrades vector and summing values for particular category
