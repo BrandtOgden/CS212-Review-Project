@@ -53,10 +53,15 @@ to the Github. Alternatively, use this link: https://github.com/BrandtOgden/CS21
 Open up Git within CLion, navigate to 'Version Control' at the bottom left hand. In the console
 section, select 'Create Git Repository' and upload the link. You will now have access to all of 
 the files.  You may then proceed to run the program. Note that when you compile the program, make 
-sure you are in the root directory of the repository. 
+sure you are in the root directory of the repository.
+
+**Option 2**
+If Option 1 does not work, you can also download the zip by accessing the 'Code' button in the
+repository, and clicking 'Download Zip'. You can then access these files on your computer and 
+open them in CLion. 
   
-**Option 2**  
-If option 1 did not allow you to compile and run the program, simply download
+**If trouble running within CLion:**  
+If you are not able to compile and run the program within CLion, simply download
 gradebook.cpp, help_functions.cpp, main.cpp, and gradebook.h from the Github
 repository. Once in g++, access the terminal and type in the following g++
 argument (Note, if the g++ compiler is not installed, make sure to install
