@@ -109,14 +109,14 @@ What would you like to do with the gradebook?
 **Option 1**  
 Selecting option 1 will allow the user to get their overall grade for the course.
 They can select various viewing options for their grade as follows:  
-  ```
+```
 What grade would you like?  
     a - Your overall course grade  
     b - Your overall course grade and the grade of each category  
     c - Your overall course grade, grade of each category, and all the grades of the different deliverables  
     d - Your grade for one specific category  
     e - Your grade for a specific deliverable  
-     ``` 
+``` 
 Selecting option 'a' prints the user's overall course grade numerically and the
 corresponding alphabetical grade.  Selecting option 'b' prints the former along
 with the grade of each specific category's grade. Selecting option 'c' prints the
@@ -151,38 +151,38 @@ the option to once again continue or quit, as seen above.
 **Option 3**  
 Selecting option 3 allows the user to enter a specific category in order to create
 a new assignment. Upon selecting 3, type in one of the categories for the course:  
-  ```
+```
 Enter the category of the assignment:  
 Categories:  
     Assignment  
     Lab  
     Project1  
     Project2   
-    ```
+```
 Note that failing to enter a proper assignment name will result in an error and 
 will prompt you to type in a valid assignment. Once a valid assignment is entered, 
 you will be prompted to enter a specific deliverable as follows:  
   ```
   Enter the name of the assignment:  
-    ```
+  ```
 If the user repeats a deliverable that is already created/exists in the file, they
 are prompted to enter a different deliverable. Once a unique deliverable is entered, 
 enter the number of points earned for the assignment as follows:  
   ```
   Enter the number of points earned for the assignment:  
-   ``` 
+  ``` 
 Upon entering a valid point amount, you will be prompted to enter whether or not the
 assignment has been completed. Enter 'y' or 'n':   
   ```
 Has the assignment been completed or not? Enter y/n:  
   ```
 After entering either 'y' or 'n', you will be delivered the following message:  
-  ```
+```
 Assignment "Lab05" has been assignment created  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-   ```    
+```    
 Once again, the user can either continue into the gradebook, or quit. 
   
 **Option 4**
@@ -197,20 +197,20 @@ with:
 What would you like to edit about this deliverable?  
     a - Edit the Grade  
     b - Edit the completion status  
-  ```    
+```    
 Editing the grade will prompt the user to enter the grade they want to change it to:  
-  ```
+ ```
   Enter the new grade for A2  
 Maximum points on this deliverable is 50.  
  ``` 
 The user is then prompted with a message letting them know the grade
 has been updated:  
-  ```
+```
   Successfully updated grade.  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-   ```    
+```    
 Once again the user can either quit or go back into the gradebook. Entering 
 option b will edit the completion status, prompting the user to enter either
 'completed' or 'not-completed':  
@@ -235,11 +235,11 @@ Enter a specific deliverable. If the deliverable is not found
 it will output the error and prompt the  user to enter a correct
 deliverable. If the user enters a deliverable that is found, they
 are prompted with the following example:  
-  ```
+```
   Assignment "A2" has been removed  
 What would you like to do?  
 Type 1 - Open the gradebook of one us  
      2 - Quit  
-   ``` 
+``` 
 ## Sample Runs
 
