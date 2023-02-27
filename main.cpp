@@ -144,8 +144,8 @@ int main() {
         //getting each specific category grade for options b and c
         float lab_total = gradebook->get_category_total("Lab");
         float assign_total = gradebook->get_category_total("Assignment");
-        float proj1_total = gradebook->get_category_total("Project 1");
-        float proj2_total = gradebook->get_category_total("Project 2");
+        float proj1_total = gradebook->get_category_total("Project1");
+        float proj2_total = gradebook->get_category_total("Project2");
         float exam_total = gradebook->get_category_total("Exam");
 
         //based on letter entered, do different option(s)
@@ -294,27 +294,42 @@ int main() {
 
         std::cout << "Enter the category of the assignment:" << std::endl;
         std::cin >> category;
+        bool good_input = false;
+        if(category != "Assignment" or category != "Lab" or category != "Project1" or category != "Project2" or category != "Exam") good_input = true;
+        while (!good_input) {
+            std::cout << "Invalid input, try again.\n";
+            std::cin >> category;
+            if(category != "Assignment" or category != "Lab" or category != "Project1" or category != "Project2" or category != "Exam") good_input = true;
+        }
         std::cout << "Enter the name of the assignment:" << std::endl;
         std::cin >> name;
-        bool good_name = false;
+        bool good_name = true;
         for (int i = 0; i < gradebook->get_title_assignment().size(); i++){
             if (name == gradebook->get_title_assignment()[i]) {
                 std::cout << "There is already a deliverable with the title " << name << ". Try again.\n";
-                good_name = true;
+                good_name = false;
             }
         }
         while (!good_name){
             std::cin >> name;
+            good_name = true;
             for (int i = 0; i < gradebook->get_title_assignment().size(); i++){
                 if (name == gradebook->get_title_assignment()[i]) {
                     std::cout << "There is already a deliverable with the title " << name << ". Try Again.\n";
-                    good_name = true;
+                    good_name = false;
                 }
             }
         }
-        std::cout << "Enter the number of points earned for the assignment:" << std::endl;
-            std::cin >> points_earned;
 
+        int total_points;
+        if (category == "Assignment") total_points = 50;
+        if (category == "Lab") total_points = 20;
+        if (category == "Project1") total_points = 150;
+        if (category == "Project2") total_points = 350;
+        if (category == "Exam") total_points = 100;
+
+        std::cout << "Enter the number of points earned for the assignment:" << std::endl;
+        std::cin >> points_earned;
         while(true){
             if(std::cin.fail()) {
                 std::cin.clear();
@@ -323,6 +338,19 @@ int main() {
                 std::cin>>points_earned;
             }
             if(!std::cin.fail()) break;
+        }
+        while (points_earned <= 0 or points_earned > total_points){
+            std::cout << "Invalid input, try again.\n";
+            std::cin >> points_earned;
+            while(true){
+                if(std::cin.fail()) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                    std::cout << "Invalid input, try again.\n";
+                    std::cin >> points_earned;
+                }
+                if(!std::cin.fail()) break;
+            }
         }
 
         /*std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
@@ -382,7 +410,6 @@ int main() {
             if (categoryList[index] == "Exam") total_points = 100;
 
             int new_grade;
-            bool good_input = true;
             std::cout << "Enter the new grade for " << name_deliverable << "\nMaximum points on this deliverable is " << total_points << ".\n";
             std::cin >> new_grade;
             while(true){
@@ -402,7 +429,7 @@ int main() {
                         std::cin.clear();
                         std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
                         std::cout << "Invalid input, try again.\n";
-                        std::cin>>new_grade;
+                        std::cin >> new_grade;
                     }
                     if(!std::cin.fail()) break;
                 }
