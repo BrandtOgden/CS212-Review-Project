@@ -379,7 +379,7 @@ int main() {
                     }
                     if (!std::cin.fail()) break;
                 }
-                while (new_grade <= 0 or new_grade > total_points) {
+                while (new_grade < 0 or new_grade > total_points) {
                     std::cout << "Invalid input, try again.\n";
                     std::cin >> new_grade;
                     while (true) {
