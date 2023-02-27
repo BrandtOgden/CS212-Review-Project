@@ -6,69 +6,41 @@
 int main() {
 
     /* Have different options for what the user can do and then show the options menu to do different things with it
-    1- Use one of our existing gradebooks
-     1a- Ryan Brooks
-     1b- Ryan Shilling
-     1c- Jake Dansereau
-     1d- Brandt Ogden
-    2- Use their own file to make a gradebook
+    1- Ryan Brooks
+    2- Ryan Shilling
+    3- Jake Dansereau
+    4- Brandt Ogden
      */
 
-    std::cout << "What would you like to do?" << std::endl;
-    std::cout << "Type 1 - Open the grade book of one us" << std::endl;
-    std::cout << "     2 - Use your own file to create a gradebook" << std::endl;
-    std::string choice;
-    std::cin >> choice;
-    while (choice != "1" && choice != "2") {
-        std::cout << "Invalid option, try again!" << std::endl;
-        std::cin >> choice;
-    }
 
     // Variable to store the gradebook
     Gradebook* gradebook;
 
     // Handles the different choices that the user has
-    if (choice == "1") {
-        std::cout << "Which person's gradebook would you like to open?" << std::endl;
-        std::cout << "    a - Ryan Brooks" << std::endl;
-        std::cout << "    b - Ryan Shilling" << std::endl;
-        std::cout << "    c - Jake Dansereau" << std::endl;
-        std::cout << "    d - Brandt Ogden" << std::endl;
-        std::string person_choice;
+    std::cout << "Which person's gradebook would you like to open?" << std::endl;
+    std::cout << "    1 - Ryan Brooks" << std::endl;
+    std::cout << "    2 - Ryan Shilling" << std::endl;
+    std::cout << "    3 - Jake Dansereau" << std::endl;
+    std::cout << "    4 - Brandt Ogden" << std::endl;
+    std::string person_choice;
+    std::cin >> person_choice;
+    // Check for valid input
+    while (person_choice != "1" && person_choice != "2" && person_choice != "3" && person_choice != "4") {
+        std::cout << "Invalid option, try again!" << std::endl;
         std::cin >> person_choice;
-        // Check for valid input
-        while (person_choice != "a" && person_choice != "b" && person_choice != "c" && person_choice != "d") {
-            std::cout << "Invalid option, try again!" << std::endl;
-            std::cin >> person_choice;
-        }
-        // Does things based on the person_choice
-        if (person_choice == "a") {
-            gradebook = new Gradebook("RyanB_grades.txt");
-        } else if (person_choice == "b") {
-            gradebook = new Gradebook("RyanS_grades.txt");
-        } else if (person_choice == "c") {
-            gradebook = new Gradebook("Jake_grades.txt");
-        } else {
-            // Choice d
-            gradebook = new Gradebook("Brandt_grades.txt");
-        }
-    } else {
-        // Remind the user to make sure the file is in the right place
-        std::cout << "Make sure your file is in the Grades folder, /cmake-build-debug/Grades\nRemember to include the file extension." << std::endl;
-        // Opens the file specified by the user and does error checking for a valid file
-        std::string file_name;
-        std::cout << "Enter the name of a file from which you want to create a gradebook: " << std::endl;
-        std::cin >> file_name;
-        while (!HelperFunctions::check_valid_file(file_name)) {
-            std::cout << "This is not the name of a file in the Grades folder, try again!" << std::endl;
-            std::cin >> file_name;
-        }
-        //TODO
-        // Add a check for whether the file is in a valid format
-
-        // Creates the gradebook
-        gradebook = new Gradebook(file_name);
     }
+    // Does things based on the person_choice
+    if (person_choice == "1") {
+        gradebook = new Gradebook("RyanB_grades.txt");
+    } else if (person_choice == "2") {
+        gradebook = new Gradebook("RyanS_grades.txt");
+    } else if (person_choice == "3") {
+        gradebook = new Gradebook("Jake_grades.txt");
+    } else {
+        // Choice d
+        gradebook = new Gradebook("Brandt_grades.txt");
+    }
+
 
 
     /* There will be a menu that will be displayed so the user can choose a number. For certain options, a sub-menu will open
