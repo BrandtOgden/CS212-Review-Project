@@ -83,9 +83,9 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
             total_points = 20;
         } else if (this->categoryList[index] == "Assignment") {
             total_points = 50;
-        } else if (this->categoryList[index] == "Project 1") {
+        } else if (this->categoryList[index] == "Project1") {
             total_points = 150;
-        } else if (this->categoryList[index] == "Project 2") {
+        } else if (this->categoryList[index] == "Project2") {
             total_points = 350;
         } else if (this->categoryList[index] == "Exam") {
             total_points = 100;
@@ -146,7 +146,7 @@ float Gradebook::get_category_total(std::string category){
         //returning the total points earned for the category
         return sumPoints;
     }
-    else if(category == "Project 1"){
+    else if(category == "Project1"){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
@@ -166,7 +166,7 @@ float Gradebook::get_category_total(std::string category){
         //returning the total points earned for the category
         return sumPoints;
     }
-    else if(category == "Project 2"){
+    else if(category == "Project2"){
         //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
@@ -226,10 +226,10 @@ float Gradebook::get_total_grade(){
             if(this->categoryList[i] == "Assignment"){
                 total_possible_points += 50;
             }
-            if(this->categoryList[i] == "Project 1"){
+            if(this->categoryList[i] == "Project1"){
                 total_possible_points += 150;
             }
-            if(this->categoryList[i] == "Project 2"){
+            if(this->categoryList[i] == "Project2"){
                 total_possible_points += 350;
             }
             if(this->categoryList[i] == "Exam"){
