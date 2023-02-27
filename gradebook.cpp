@@ -357,7 +357,8 @@ void Gradebook::push_changes() {
         std::string temp_complete;
         if (this->completed[i]) temp_complete = "completed";
         else temp_complete = "not-completed";
-        out_file+=(temp_category + " " + temp_title + " " + temp_earned + " " + temp_complete + "\n");
+        out_file+=(temp_category + " " + temp_title + " " + temp_earned + " " + temp_complete);
+        if (i = this->title_assignment.size()-1) out_file+="\n";
     }
     std::ofstream myfile;
     myfile.open("Grades/" + this->file_name);
