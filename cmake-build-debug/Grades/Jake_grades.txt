@@ -16,5 +16,5 @@ Lab L10 20 completed
 Lab L11 20 completed
 Lab L12 20 completed
 Project1 P1 100 completed
-Project P2 100 completed
+Project2 P2 100 completed
 Exam FinalExam 90 completed
