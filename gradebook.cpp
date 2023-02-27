@@ -317,6 +317,9 @@ std::string Gradebook::new_assignment(std::string category, std::string name, in
 
 
 void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
+    //This function takes a deliverable name and an integer value and reassigns the vector of current points earned
+
+    //Searches for the index of the assignment
     int index = -1;
     for (int i = 0; i < this->title_assignment.size(); i++) {
         if (this->title_assignment[i] == name_assignment) {
@@ -325,14 +328,19 @@ void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
         }
     }
 
+    //uses index to reassign the points earned correlated with the assignment
     this->earned_points[index] = new_earned_points;
 
+    //calls push_changes function which writes to the input file.
     push_changes();
 
 }
 
 
 void Gradebook::edit_completion(std::string name_assignment, bool new_completion){
+    //This function takes a deliverable name and an bool value and reassigns the vector of current completion status
+
+    //Searches for the index of the assignment
     int index = -1;
     for (int i = 0; i < this->title_assignment.size(); i++) {
         if (this->title_assignment[i] == name_assignment) {
@@ -341,15 +349,22 @@ void Gradebook::edit_completion(std::string name_assignment, bool new_completion
         }
     }
 
+    //uses index to reassign the completion status correlated with the assignment
     this->completed[index] = new_completion;
 
+    //calls push_changes function which writes to the input file.
     push_changes();
 
 }
 
 
 void Gradebook::push_changes() {
+    //This function writes the data in the vectors to the input file
+
+    //puts name of user at top.
     std::string out_file = this->name + "\n";
+
+    //Loop adds to out_file string by looping through all the vectors.
     for (int i = 0; i < this->title_assignment.size(); i++){
         std::string temp_category = this->categoryList[i];
         std::string temp_title = this->title_assignment[i];
@@ -360,8 +375,8 @@ void Gradebook::push_changes() {
         out_file+=(temp_category + " " + temp_title + " " + temp_earned + " " + temp_complete);
         if (i != this->title_assignment.size()-1) out_file+="\n";
     }
-    std::cout << title_assignment.size() << std::endl;
 
+    //Sends out_file data into the file.
     std::ofstream myfile;
     myfile.open("Grades/" + this->file_name);
     myfile << out_file;
