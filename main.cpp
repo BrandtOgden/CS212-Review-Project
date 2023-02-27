@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <limits>
 #include "gradebook.h"
 
 int main() {
@@ -273,6 +274,13 @@ int main() {
         std::cout << "    b - Edit the completion status" << "\n";
         std::string choice;
         std::cin >> choice;
+        bool good_input = false;
+        if(choice == "a" or choice == "b") good_input = true;
+        while (!good_input) {
+            std::cout << "Invalid input, try again.\n";
+            std::cin >> choice;
+            if(choice == "a" or choice == "b") good_input = true;
+        }
 
         if(choice == "a"){
             int index = -1;
@@ -293,11 +301,30 @@ int main() {
             if (categoryList[index] == "Exam") total_points = 100;
 
             int new_grade;
+            bool good_input = true;
             std::cout << "Enter the new grade for " << name_deliverable << "\nMaximum points on this deliverable is " << total_points << ".\n";
             std::cin >> new_grade;
-            while (new_grade < 0 or new_grade > total_points){
+            while(true){
+                if(std::cin.fail()) {
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                    std::cout << "Invalid input, try again.\n";
+                    std::cin>>new_grade;
+                }
+                if(!std::cin.fail()) break;
+            }
+            while (new_grade <= 0 or new_grade > total_points){
                 std::cout << "Invalid input, try again.\n";
                 std::cin >> new_grade;
+                while(true){
+                    if(std::cin.fail()) {
+                        std::cin.clear();
+                        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                        std::cout << "Invalid input, try again.\n";
+                        std::cin>>new_grade;
+                    }
+                    if(!std::cin.fail()) break;
+                }
             }
 
             gradebook->edit_grade(name_deliverable, new_grade);
