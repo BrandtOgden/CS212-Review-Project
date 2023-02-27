@@ -111,7 +111,7 @@ int main() {
     // Start of the main loop that will do different things to do the gradebook
     std::cout << "What would you like to do with the gradebook?" << std::endl;
     std::cout << "    1 - Get your grade" << std::endl;
-    std::cout << "    2 - List the current assignments" << std::endl;
+    std::cout << "    2 - List the current deliverables" << std::endl;
     std::cout << "    3 - Create a new assignment" << std::endl;
     std::cout << "    4 - Edit an existing assignment" << std::endl;
     std::cout << "    5 - Remove an assignment" << std::endl;
@@ -284,7 +284,8 @@ int main() {
 
         }
     } else if (gradebook_choice == "2") {
-
+        // Outputs all the different deliverables in the text file
+        gradebook->list_assignments();
     } else if (gradebook_choice == "3") {
         // Makes a new assignment by writing to the gradebook file with certain criteria from the user
         std::string category;
