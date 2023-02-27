@@ -407,8 +407,8 @@ std::string Gradebook::remove_assignment(std::string remove_name) {
         temp_file.close();
         std::remove(("Grades/" + file_name).c_str());
         std::rename("Grades/temp_gradebook.txt", ("Grades/" + file_name).c_str());
-        return "Assignment \"" + remove_name + "\" has been removed";
+        return "Assignment \"" + remove_name + "\" has been removed\n";
     } else {
-        return "Assignment \"" + remove_name + "\" does not exist";
+        return "Assignment \"" + remove_name + "\" does not exist\n";
     }
 }
