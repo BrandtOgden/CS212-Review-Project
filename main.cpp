@@ -182,16 +182,14 @@ int main() {
             std::cin >> single_category;
             //while the category input does not equal one of the correct category options, it continues to ask for input
             while(single_category != "Lab" and single_category != "Assignment" and single_category != "Project 1"  and single_category != "Project 2" and single_category != "Exam" ){
-                std::cout <<  "Invalid category, please try again:";
+                std::cout <<  "Invalid category, please try again:" << std::endl;
                 std::cin >> single_category;
             }
             //getting the grade_return from the get_category_total function for specific category
             grade_return = gradebook->get_category_total(single_category);
 
             //error checking to make sure there is a grade for that specific category
-            if(grade_return == 0){
-                std::cout << "There is no grade for " << single_category;
-            }else{
+            if(grade_return != 0){
                 std::cout << "Your grade for " << single_category << " is " << grade_return << "%";
             }
 
