@@ -155,11 +155,11 @@ int main() {
                 std::cout << "Your total grade for the course is: " << grade_return << "%" << std::endl;
                 std::cout << "Your letter grade is: " << letter_grade << std::endl;
                 //getting each specific category grade for options b and c
-                float lab_total = gradebook->get_category_total("Lab");
-                float assign_total = gradebook->get_category_total("Assignment");
-                float proj1_total = gradebook->get_category_total("Project1");
-                float proj2_total = gradebook->get_category_total("Project2");
-                float exam_total = gradebook->get_category_total("Exam");
+                gradebook->get_category_total("Lab");
+                gradebook->get_category_total("Assignment");
+                gradebook->get_category_total("Project1");
+                gradebook->get_category_total("Project2");
+                gradebook->get_category_total("Exam");
 
 
             } else if (grade_choice == "c") {
@@ -174,13 +174,13 @@ int main() {
                 std::cout << "Your total grade for the course is: " << grade_return << "%" << std::endl;
                 std::cout << "Your letter grade is: " << letter_grade << std::endl << std::endl;
                 //getting each specific category grade for options b and c
-                float lab_total = gradebook->get_category_total("Lab");
-                float assign_total = gradebook->get_category_total("Assignment");
-                float proj1_total = gradebook->get_category_total("Project1");
-                float proj2_total = gradebook->get_category_total("Project2");
-                float exam_total = gradebook->get_category_total("Exam");
+                gradebook->get_category_total("Lab");
+                gradebook->get_category_total("Assignment");
+                gradebook->get_category_total("Project1");
+                gradebook->get_category_total("Project2");
+                gradebook->get_category_total("Exam");
 
-
+                std::cout << std::endl;
                 //getting each specific assignment grade
                 for (int i = 0; i < gradebook->get_title_assignment().size(); i++) {
                     int individual = gradebook->get_grade_individual(gradebook->get_title_assignment()[i]);
