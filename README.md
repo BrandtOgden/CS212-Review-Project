@@ -9,9 +9,31 @@ grade, editing, removing, and creating different assignments, along with lots of
 other features.
 
 ## Planning 
-<picture>
-<source srcset="https://drive.google.com/file/d/1P3Ghl6xzbkqWiGp7XLNFmZYJUeIngNhT/view?usp=sharing">
-</picture>
+In our first planning session we outlined the different functions that we were 
+going to need in our class along with the different private variables we would 
+need, and started to think about how these functions would be working.
+**INSERT IMAGE HERE ABOUT PLANNING ON WHITEBOARD Bla bla bla**
+During this planning session we divided who would do the different functions.
+Brandt worked on the constructor for the gradebook which took input from a file
+and put it into the private vectors associated with the GradeBook class. He also 
+worked on the get_individual_grade function along with the corresponding
+options in main. Jake worked on the get_category_grade and get_total_grade 
+functions along with the corresponding options in main. Ryan Shilling worked 
+on the edit functions that allow the user to edit different grades and completion
+status along with the corresponding options in main. Ryan Brooks wrote the 
+outline for main (you can see this in the comments at the top of main.cpp) and 
+did most of the miscellaneous work on it that didn't fit into anyone else's role,
+including the ability to remove an assignment.
 
+## Compilation Instructions
+To be completed
 
-Document group roles 
+## Runtime Instructions 
+During runtime different options will be shown to allow you to do different things 
+with the grades in the text file. It will explain exactly what your options are and
+what you need to type. All the inputs are "idiot-proofed" and will not allow you
+to continue until you give a valid input. Different examples of inputs are shown in 
+the next section.
+
+## Sample Runs
+
