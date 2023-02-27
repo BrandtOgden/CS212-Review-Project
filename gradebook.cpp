@@ -100,9 +100,9 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
 
 
 
+
 //gets all grades from specific category selected by user and returns the overall
 //point sum for that category
-//TODO Fix math for getting sum
 float Gradebook::get_category_total(std::string category){
     std::vector<int>labGrades;
     float sumPoints = 0;
@@ -116,17 +116,17 @@ float Gradebook::get_category_total(std::string category){
             }
         }
         //going through labGrades vector and summing values for particular category
-        for(int j = 0; j < labGrades.size(); j++){
-            sumPoints += labGrades[j]; 
+        for(int j = 0; j < this->labGrades.size(); j++){
+            sumPoints += this->labGrades[j];
         }
         //clearing the labGrades vector for next category input use
         labGrades.clear();
 
         //returning the total points earned for the category
-        return sumPoints; 
+        return sumPoints;
     }
     else if(category == "Assignment"){
-          //going through category list and storing indices that match the category entered
+        //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the assignmentGrades vector
         for(int i = 0; i < this->categoryList.size(); i++){
@@ -134,9 +134,11 @@ float Gradebook::get_category_total(std::string category){
                 this->assignmentGrades.push_back(this->earned_points[i]);
             }
         }
+
         //going through assignmentGrades vector and summing values for particular category
         for(int j = 0; j < this->assignmentGrades.size(); j++){
             sumPoints += this->assignmentGrades[j];
+
         }
         //clearing the assignmentGrades vector for next category input use
         this->assignmentGrades.clear();
@@ -145,7 +147,7 @@ float Gradebook::get_category_total(std::string category){
         return sumPoints;
     }
     else if(category == "Project 1"){
-          //going through category list and storing indices that match the category entered
+        //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the proj1Grades vector
         for(int i = 0; i < this->categoryList.size(); i++){
@@ -157,6 +159,7 @@ float Gradebook::get_category_total(std::string category){
         for(int j = 0; j < this->proj1Grades.size(); j++){
             sumPoints += this->proj1Grades[j];
         }
+
         //clearing the proj1Grades vector for next category input use
         this->proj1Grades.clear();
 
@@ -183,7 +186,7 @@ float Gradebook::get_category_total(std::string category){
         return sumPoints;
     }
     else if(category == "Exam"){
-          //going through category list and storing indices that match the category entered
+        //going through category list and storing indices that match the category entered
         //if category matches the user input, it adds the points at current index to
         //the examGrades vector
         for(int i = 0; i < this->categoryList.size(); i++){
@@ -200,29 +203,44 @@ float Gradebook::get_category_total(std::string category){
 
         //returning the total points earned for the category
         return sumPoints;
-    }else{
-        std::cout << "Error"; //TEMPORARY CONDITIONAL 
     }
     //resetting sumPoints back to 0
-    sumPoints = 0; 
     return 0;
 }
 
-//TODO Fix total grade math
+//function gets the total grade of all completed deliverables
 float Gradebook::get_total_grade(){
-    float total_points;
-    //calls get_category_total function for each assignment type to get the sum grade of each category
-    float lab_total = get_category_total("Lab");
-    float assign_total = get_category_total("Assignment");
-    float proj1_total = get_category_total("Project 1");
-    float proj2_total = get_category_total("Project 2");
-    float exam_total = get_category_total("Exam");
+    float points_earned = 0;
+    float total_possible_points = 0;
+    float grade = 0;
 
-    //adding all categories to get total and dividing by 10 to get grade within 0-100 scale to check for letter grade
-    total_points = lab_total + assign_total + proj1_total + proj2_total + exam_total;
-    total_points = total_points;   //TODO how to get weight if not all assignments are completed
+    //iterating through categoryList and if deliverable is completed it adds
+    //those points to points_earned and adds the maximum points possible
+    //for that deliverable to total_possible_points
+    for(int i = 0; i < this->categoryList.size(); i++){
+        if(completed[i] == true){
+            points_earned += this->earned_points[i];
+            if(this->categoryList[i] == "Lab"){
+                total_possible_points += 20;
+            }
+            if(this->categoryList[i] == "Assignment"){
+                total_possible_points += 50;
+            }
+            if(this->categoryList[i] == "Project 1"){
+                total_possible_points += 150;
+            }
+            if(this->categoryList[i] == "Project 2"){
+                total_possible_points += 350;
+            }
+            if(this->categoryList[i] == "Exam"){
+                total_possible_points += 100;
+            }
+        }
+    }
+    //calculating percent grade rounded
+    grade = std::round((float(points_earned) / float(total_possible_points)) * 100);
 
-    return total_points;
+    return grade;
 }
 
 
