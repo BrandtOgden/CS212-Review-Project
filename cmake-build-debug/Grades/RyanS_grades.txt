@@ -7,7 +7,6 @@ Lab L1 20 completed
 Lab L2 20 completed
 Lab L3 0 completed
 Lab L4 20 completed
-<<<<<<< HEAD
 Lab L5 0 not-completed
 Lab L6 0 not-completed
 Lab L7 0 not-completed
@@ -16,19 +15,8 @@ Lab L9 0 not-completed
 Lab L10 0 not-completed
 Lab L11 0 not-completed
 Lab L12 0 not-completed
-Project1 P1 150 completed
-Project P2 0 not-completed
-Exam FinalExam 0 not-completed
-=======
-Lab L5 20 completed
-Lab L6 20 completed
-Lab L7 20 completed
-Lab L8 20 completed
-Lab L9 20 completed
-Lab L10 20 completed
-Lab L11 20 completed
-Lab L12 20 completed
 Project1 P1 100 completed
 Project2 P2 100 completed
 Exam FinalExam 90 completed
->>>>>>> d6667e63237aab2d347e396f3700dc579186d084
+
+
