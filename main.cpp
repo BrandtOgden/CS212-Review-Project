@@ -217,7 +217,7 @@ int main() {
             // Calculates and outputs the grade
             int pct = gradebook->get_grade_individual(name_deliverable);
             if (pct == -2) {
-                std::cout << "This assignment has not been completed!" << std::endl;
+                std::cout << name_deliverable << " has not been completed!" << std::endl;
             } else {
                 std::string letter_grade = HelperFunctions::get_letter_grade(pct);
                 std::cout << "Your grade for " << name_deliverable << " is a " << pct << "% or " << letter_grade << std::endl;
@@ -236,12 +236,33 @@ int main() {
         std::cin >> category;
         std::cout << "Enter the name of the assignment:" << std::endl;
         std::cin >> name;
+        bool good_name = false;
+        for (int i = 0; i < gradebook->get_title_assignment().size(); i++){
+            if (name == gradebook->get_title_assignment()[i]) {
+                std::cout << "There is already a deliverable with the title " << name << ". Try again.\n";
+                good_name = true;
+            }
+        }
+        while (!good_name){
+            std::cin >> name;
+            for (int i = 0; i < gradebook->get_title_assignment().size(); i++){
+                if (name == gradebook->get_title_assignment()[i]) {
+                    std::cout << "There is already a deliverable with the title " << name << ". Try Again.\n";
+                    good_name = true;
+                }
+            }
+        }
+        while
         std::cout << "Enter the number of points earned for the assignment:" << std::endl;
         std::cin >> points_earned;
-        // error checking if a number isn't entered or it's a negative number
-        // TODO Don't know how to do this
-        while (std::cin.fail()) {
-            std::cout << std::to_string(points_earned) << " is not a valid number, try again!\nEnter the number of points earned for the assignment:" << std::endl;
+        while(true){
+            if(std::cin.fail()) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                std::cout << "Invalid input, try again.\n";
+                std::cin>>points_earned;
+            }
+            if(!std::cin.fail()) break;
         }
 
         /*std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
