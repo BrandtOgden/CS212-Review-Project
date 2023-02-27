@@ -141,12 +141,6 @@ int main() {
             std::cout << "Invalid option, try again!" << std::endl;
             std::cin >> grade_choice;
         }
-        //getting each specific category grade for options b and c
-        float lab_total = gradebook->get_category_total("Lab");
-        float assign_total = gradebook->get_category_total("Assignment");
-        float proj1_total = gradebook->get_category_total("Project1");
-        float proj2_total = gradebook->get_category_total("Project2");
-        float exam_total = gradebook->get_category_total("Exam");
 
         //based on letter entered, do different option(s)
         if (grade_choice == "a") {
@@ -168,33 +162,13 @@ int main() {
             //outputting overall course grade and grade for each category
             std::cout << "Your total grade for the course is: " << grade_return << "%" << std::endl;
             std::cout << "Your letter grade is: " << letter_grade << std::endl;
+            //getting each specific category grade for options b and c
+            float lab_total = gradebook->get_category_total("Lab");
+            float assign_total = gradebook->get_category_total("Assignment");
+            float proj1_total = gradebook->get_category_total("Project1");
+            float proj2_total = gradebook->get_category_total("Project2");
+            float exam_total = gradebook->get_category_total("Exam");
 
-            //error checking to see if output is 0, which means no grade existed for that part
-            if(lab_total == 0){
-                std::cout <<  "No lab grades entered." << std::endl;
-            }else{
-                std::cout << "Your total lab grade is: " << lab_total << std::endl;
-            }
-            if(assign_total == 0){
-                std::cout << "No assignment grades entered." << std::endl;
-            }else{
-                std::cout << "Your total assignment grade is: " << assign_total << std::endl;
-            }
-            if(proj1_total == 0){
-                std::cout << "No Project 1 grade entered." << std::endl;
-            }else{
-                std::cout << "Your total project 1 grade is: " << proj1_total << std::endl;
-            }
-            if(proj2_total == 0){
-                std::cout << "No Project 2 grade entered." << std::endl;
-            }else{
-                std::cout << "Your total project 2 grade is: " << proj2_total << std::endl;
-            }
-            if(exam_total == 0){
-                std::cout << "No exam grade entered." << std::endl << std::endl;
-            }else{
-                std::cout << "Your total exam grade is: " << exam_total << std::endl << std::endl;
-            }
 
         } else if (grade_choice == "c") {
             //initializes a grade_return variable and sets it to function call
@@ -202,36 +176,18 @@ int main() {
             //passing grade_return into helper function to get letter grade
             std::string letter_grade = HelperFunctions::get_letter_grade(grade_return);
 
+
+
             //outputting overall course grade and grade for each category
             std::cout << "Your total grade for the course is: " << grade_return << "%" << std::endl;
             std::cout << "Your letter grade is: " << letter_grade << std::endl << std::endl;
+            //getting each specific category grade for options b and c
+            float lab_total = gradebook->get_category_total("Lab");
+            float assign_total = gradebook->get_category_total("Assignment");
+            float proj1_total = gradebook->get_category_total("Project1");
+            float proj2_total = gradebook->get_category_total("Project2");
+            float exam_total = gradebook->get_category_total("Exam");
 
-            //error checking to see if output is 0, which means no grade existed for that part
-            if(lab_total == 0){
-                std::cout <<  "No lab grades entered." << std::endl;
-            }else{
-                std::cout << "Your total lab grade is: " << lab_total << std::endl;
-            }
-            if(assign_total == 0){
-                std::cout << "No assignment grades entered." << std::endl;
-            }else{
-                std::cout << "Your total assignment grade is: " << assign_total << std::endl;
-            }
-            if(proj1_total == 0){
-                std::cout << "No Project 1 grade entered." << std::endl;
-            }else{
-                std::cout << "Your total project 1 grade is: " << proj1_total << std::endl;
-            }
-            if(proj2_total == 0){
-                std::cout << "No Project 2 grade entered." << std::endl;
-            }else{
-                std::cout << "Your total project 2 grade is: " << proj2_total << std::endl;
-            }
-            if(exam_total == 0){
-                std::cout << "No exam grade entered." << std::endl << std::endl;
-            }else{
-                std::cout << "Your total exam grade is: " << exam_total << std::endl << std::endl;
-            }
 
             //getting each specific assignment grade
             for(int i = 0; i < gradebook->get_title_assignment().size(); i++){
@@ -298,11 +254,11 @@ int main() {
         std::cout << "Enter the category of the assignment:" << std::endl;
         std::cin >> category;
         bool good_input = false;
-        if(category != "Assignment" or category != "Lab" or category != "Project1" or category != "Project2" or category != "Exam") good_input = true;
+        if(category == "Assignment" or category == "Lab" or category == "Project1" or category == "Project2" or category == "Exam") good_input = true;
         while (!good_input) {
             std::cout << "Invalid input, try again.\n";
             std::cin >> category;
-            if(category != "Assignment" or category != "Lab" or category != "Project1" or category != "Project2" or category != "Exam") good_input = true;
+            if(category == "Assignment" or category == "Lab" or category == "Project1" or category == "Project2" or category == "Exam") good_input = true;
         }
         std::cout << "Enter the name of the assignment:" << std::endl;
         std::cin >> name;

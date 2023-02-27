@@ -119,6 +119,16 @@ float Gradebook::get_category_total(std::string category){
         for(int j = 0; j < this->labGrades.size(); j++){
             sumPoints += this->labGrades[j];
         }
+        //error checking if sumPoints is 0 it means there is no grade for this category
+        if(sumPoints == 0){
+            std::cout <<  "No lab grades entered." << std::endl;
+        }else{
+            //calculating grade of category
+            sumPoints = sumPoints/(labGrades.size()*20);
+            sumPoints = std::round((float(sumPoints) * 100));
+            std::cout << "Your total lab grade is: " << sumPoints << "%" <<  std::endl;
+        }
+
         //clearing the labGrades vector for next category input use
         labGrades.clear();
 
@@ -140,6 +150,17 @@ float Gradebook::get_category_total(std::string category){
             sumPoints += this->assignmentGrades[j];
 
         }
+        //error checking if sumPoints is 0 it means there is no grade for this category
+        if(sumPoints == 0){
+            std::cout <<  "No assignment grades entered." << std::endl;
+        }else{
+            //calculating grade of category
+            sumPoints = sumPoints/(assignmentGrades.size()*50);
+            sumPoints = std::round((float(sumPoints) * 100));
+            std::cout << "Your total assignment grade is: " << sumPoints << "%" <<  std::endl;
+        }
+
+
         //clearing the assignmentGrades vector for next category input use
         this->assignmentGrades.clear();
 
@@ -158,6 +179,15 @@ float Gradebook::get_category_total(std::string category){
         //going through proj1Grades vector and summing values for particular category
         for(int j = 0; j < this->proj1Grades.size(); j++){
             sumPoints += this->proj1Grades[j];
+        }
+        //error checking if sumPoints is 0 it means there is no grade for this category
+        if(sumPoints == 0){
+            std::cout <<  "No Project 1 grade entered." << std::endl;
+        }else{
+            //calculating grade of category
+            sumPoints = sumPoints/(proj1Grades.size()*150);
+            sumPoints = std::round((float(sumPoints) * 100));
+            std::cout << "Your total Project 1 grade is: " << sumPoints << "%" <<  std::endl;
         }
 
         //clearing the proj1Grades vector for next category input use
@@ -179,6 +209,16 @@ float Gradebook::get_category_total(std::string category){
         for(int j = 0; j < this->proj2Grades.size(); j++){
             sumPoints += this->proj2Grades[j];
         }
+        //error checking if sumPoints is 0 it means there is no grade for this category
+        if(sumPoints == 0){
+            std::cout <<  "No Project 2 grade entered." << std::endl;
+        }else{
+            //calculating grade of category
+            sumPoints = sumPoints/(proj2Grades.size()*350);
+            sumPoints = std::round((float(sumPoints) * 100));
+            std::cout << "Your total Project 2 grade is: " << sumPoints << "%" <<  std::endl;
+        }
+
         //clearing the proj2Grades vector for next category input use
         this->proj2Grades.clear();
 
@@ -198,6 +238,16 @@ float Gradebook::get_category_total(std::string category){
         for(int j = 0; j < this->examGrades.size(); j++){
             sumPoints += this->examGrades[j];
         }
+        //error checking if sumPoints is 0 it means there is no grade for this category
+        if(sumPoints == 0){
+            std::cout <<  "No Exam grade entered." << std::endl;
+        }else{
+            //calculating grade of category
+            sumPoints = sumPoints/(examGrades.size()*100);
+            sumPoints = std::round((float(sumPoints) * 100));
+            std::cout << "Your total Exam grade is: " << sumPoints << "%" << std::endl;
+        }
+
         //clearing the labGrades vector for next category input use
         this->examGrades.clear();
 
