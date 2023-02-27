@@ -401,11 +401,11 @@ int main() {
                         << "Should this deliverable be completed or not-completed?\nEnter 'completed' or 'not-completed'.\n";
                 std::cin >> completion_str;
                 bool good_input = false;
-                if (completion_str != "completed" or completion_str != "not-completed") good_input = true;
+                if (completion_str == "completed" or completion_str == "not-completed") good_input = true;
                 while (!good_input) {
                     std::cout << "Invalid input, try again.\n";
                     std::cin >> completion_str;
-                    if (completion_str != "completed" or completion_str != "not-completed") good_input = true;
+                    if (completion_str == "completed" or completion_str == "not-completed") good_input = true;
                 }
 
                 bool completion;
