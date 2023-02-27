@@ -14,7 +14,7 @@ one's overall grade for the course, listing the grades of a student's
 deliverables, and being able to add, edit, and/or remove assignments. 
 Getting one's grades is imperative to seeing where a student stands in the 
 course. Listing the deliverables will allow students to view specific 
-assignments to give them a more detailed view of their course progress.  
+assignments to give them a more detailed view of their course progress.
 Being able to add, edit, and remove assigments will allow students to 
 manipulate their points and completion status. This serves several purposes, 
 including being able to modify points should their be any changes made to 
@@ -49,8 +49,8 @@ To be completed
 ## Runtime Instructions 
 Upon running the program, the user will be presented with two options:
 
-Type 1 - Open the gradebook of one us
-     2 - Quit
+  Type 1 - Open the gradebook of one us
+       2 - Quit
      
 Entering option 2 will terminate the program with exit code 0. Entering option 
 1 will present the user with the mock grade text files of the four 
