@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/ryans/OneDrive/Documents/GitHub/CS212-Review-Project/cmake-build-debug"
+			"value" : "c:/Users/brook/Documents/Workspaces/CSC 212/Review Project/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ryans/OneDrive/Documents/GitHub/CS212-Review-Project/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/brook/Documents/Workspaces/CSC 212/Review Project/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ryans/OneDrive/Documents/GitHub/CS212-Review-Project"
+			"value" : "C:/Users/brook/Documents/Workspaces/CSC 212/Review Project"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ryans/OneDrive/Documents/GitHub/CS212-Review-Project/cmake-build-debug"
+			"value" : "C:/Users/brook/Documents/Workspaces/CSC 212/Review Project/cmake-build-debug"
 		},
 		{
 			"name" : "CS212_Review_Project_IS_TOP_LEVEL",
@@ -1287,7 +1287,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/ryans/OneDrive/Documents/GitHub/CS212-Review-Project"
+			"value" : "C:/Users/brook/Documents/Workspaces/CSC 212/Review Project"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

@@ -360,6 +360,8 @@ void Gradebook::push_changes() {
         out_file+=(temp_category + " " + temp_title + " " + temp_earned + " " + temp_complete);
         if (i != this->title_assignment.size()-1) out_file+="\n";
     }
+    std::cout << title_assignment.size() << std::endl;
+
     std::ofstream myfile;
     myfile.open("Grades/" + this->file_name);
     myfile << out_file;

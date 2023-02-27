@@ -249,6 +249,7 @@ int main() {
             std::string is_completed;
 
             std::cout << "Enter the category of the assignment:" << std::endl;
+            std::cout << "Categories:\n    Assignment\n    Lab\n    Project1\n    Project2" << std::endl;
             std::cin >> category;
             bool good_input = false;
             if (category == "Assignment" or category == "Lab" or category == "Project1" or category == "Project2" or
