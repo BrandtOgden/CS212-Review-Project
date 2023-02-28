@@ -46,6 +46,7 @@ including the ability to remove an assignment.
 ## Compilation Instructions
 There are two options to run the program:  
 **Option 1**  
+
 To run the program, acess the root directory section of the Github. You can access the 
 following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
 Once on the main repository page, select the 'Code' button at the top right, and copy the link
@@ -56,6 +57,7 @@ the files.  You may then proceed to run the program. Note that when you compile 
 sure you are in the root directory of the repository.
 
 **Option 2**
+
 If Option 1 does not work, you can also download the zip by accessing the 'Code' button in the
 repository, and clicking 'Download Zip'. You can then access these files on your computer and 
 open them in CLion. 
@@ -103,7 +105,6 @@ Upon running the program, the user will be presented with two options:
 ```
   Type 1 - Open the gradebook of one us  
        2 - Quit  
-    
 ```
         
 Entering option 2 will terminate the program with exit code 0. Entering option 
