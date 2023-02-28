@@ -28,8 +28,6 @@ private:
 public:
     // Constructor that gets assignments and grades from a file
     Gradebook(std::string file_name);
-    // TODO
-    // Add a function that checks the formatting of the file to make sure there are labs assignments etc...
     // Lists all the assignments that are currently in title_assignment
     void list_assignments();
     // Calculates the grade for an individual assignment called name
