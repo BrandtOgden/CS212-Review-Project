@@ -334,7 +334,6 @@ void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
 
     //calls push_changes function which writes to the input file.
     push_changes();
-
 }
 
 

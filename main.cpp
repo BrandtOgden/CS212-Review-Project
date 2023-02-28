@@ -252,9 +252,13 @@ int main() {
             int points_earned = -1;
             std::string is_completed;
 
+            // User will enter a category from the given options
+            // checks whether the category is one of the valid options
             std::cout << "Enter the category of the assignment:" << std::endl;
             std::cout << "Categories:\n    Assignment\n    Lab\n    Project1\n    Project2" << std::endl;
             std::cin >> category;
+            // if it's one of the categories, it's a good input
+            // loop until the input is good by asking the user to enter the category again
             bool good_input = false;
             if (category == "Assignment" or category == "Lab" or category == "Project1" or category == "Project2" or
                 category == "Exam")
@@ -266,6 +270,9 @@ int main() {
                     category == "Project2" or category == "Exam")
                     good_input = true;
             }
+
+            // Then asks user to enter the name of the assignment
+            // As long as an assignment with the name does not already exist, the name is accepted
             std::cout << "Enter the name of the assignment:" << std::endl;
             std::cin >> name;
             bool good_name = true;
@@ -275,6 +282,7 @@ int main() {
                     good_name = false;
                 }
             }
+            // loop until a good name is entered
             while (!good_name) {
                 std::cin >> name;
                 good_name = true;
@@ -286,6 +294,7 @@ int main() {
                 }
             }
 
+            // the assignment's total points based on its category
             int total_points;
             if (category == "Assignment") total_points = 50;
             if (category == "Lab") total_points = 20;
@@ -293,6 +302,8 @@ int main() {
             if (category == "Project2") total_points = 350;
             if (category == "Exam") total_points = 100;
 
+            // enter a number of points earned
+            // to be good input, the points must be a number, non-negative, and less than or equal to the max number of points
             std::cout << "Enter the number of points earned for the assignment:" << std::endl;
             std::cin >> points_earned;
             while (true) {
@@ -304,6 +315,7 @@ int main() {
                 }
                 if (!std::cin.fail()) break;
             }
+            // loop until good input conditions are met
             while (points_earned <= 0 || points_earned > total_points) {
                 std::cout << "Invalid input, try again.\n";
                 std::cin >> points_earned;
@@ -318,6 +330,8 @@ int main() {
                 }
             }
 
+            // asks whther the assingment has been completed for not
+            // the input is y/n and then is used to write completed or not-completed as a string when creating the new assignment
             std::cout << "Has the assignment been completed or not? Enter y/n:" << std::endl;
             std::cin >> is_completed;
             while (is_completed != "y" && is_completed != "n") {
@@ -326,6 +340,8 @@ int main() {
             }
             if (is_completed == "y") is_completed = "completed";
             else is_completed = "not-completed";
+
+            // make the new assignment with the info
             std::cout << gradebook->new_assignment(category, name, points_earned, is_completed) << std::endl;
 
         } else if (gradebook_choice == "4") {
