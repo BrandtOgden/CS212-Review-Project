@@ -395,35 +395,20 @@ bool Gradebook::assignment_exists(std::string assignment_name) {
 }
 
 
-// returns 0 for an assignment successfully removed and -1 if the assignment doesn't exist
 std::string Gradebook::remove_assignment(std::string remove_name) {
     if (assignment_exists(remove_name)) {
-        // a new temporary file to hold all the lines
-        std::ofstream temp_file;
-        temp_file.open("Grades/temp_gradebook.txt");
-
-        temp_file << this->name + "\n";
-
         // write the line from the vectors of the current assignments unless the assignment is the one we want to remove
         for (int i = 0; i < title_assignment.size(); i++) {
-            if (title_assignment[i] != remove_name) {
-                std::string temp_completed = "completed";
-                if (!completed[i]) {
-                    temp_completed = "not-completed";
-                }
-                temp_file << categoryList[i] + " " + title_assignment[i] + " " + std::to_string(earned_points[i]) + " " + temp_completed + "\n";
-            }
-            else {
+            if (title_assignment[i] == remove_name) {
                 // remove the matching assignment to delete from the vectors
-                this->categoryList.erase(categoryList.begin()+i);
-                this->title_assignment.erase(title_assignment.begin()+i);
-                this->earned_points.erase(earned_points.begin()+i);
-                this->earned_points.erase(earned_points.begin()+i);
+                this->categoryList.erase(categoryList.begin() + i);
+                this->title_assignment.erase(title_assignment.begin() + i);
+                this->earned_points.erase(earned_points.begin() + i);
+                this->earned_points.erase(earned_points.begin() + i);
             }
         }
-        temp_file.close();
-        std::remove(("Grades/" + file_name).c_str());
-        std::rename("Grades/temp_gradebook.txt", ("Grades/" + file_name).c_str());
+        // rewrites the file
+        push_changes();
         return "Assignment \"" + remove_name + "\" has been removed\n";
     } else {
         return "Assignment \"" + remove_name + "\" does not exist\n";
