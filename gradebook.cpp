@@ -1,5 +1,6 @@
 #include "gradebook.h"
-#include <vector> 
+#include <vector>
+
 // Implement functions as defined in gradebook.h
 Gradebook::Gradebook(std::string file_name) {
     // ALL FILES WE WANT TO USE HAVE TO BE IN THE GRADES FOLDER
@@ -48,6 +49,7 @@ Gradebook::Gradebook(std::string file_name) {
     }
 }
 
+
 // Loop through title_assignment and output all the names so the user knows what
 // assignments there are
 void Gradebook::list_assignments() {
@@ -55,6 +57,7 @@ void Gradebook::list_assignments() {
         std::cout << this->title_assignment[i] << std::endl;
     }
 }
+
 
 // Returns the percentage of the grade of the assignment specified
 // Returns -1 if there is not an assignment called name_assignment
@@ -70,7 +73,6 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
             break;
         }
     }
-
 
     // Checks whether the name of assignment has been found
     if (index == -1) {
@@ -95,10 +97,7 @@ int Gradebook::get_grade_individual(std::string name_deliverable) {
         int pct = std::round((float(this->earned_points[index]) / float(total_points)) * 100);
         return pct;
     }
-
 }
-
-
 
 
 //gets all grades from specific category selected by user and returns the overall
@@ -114,24 +113,26 @@ float Gradebook::get_category_total(std::string category){
                 this->labGrades.push_back(this->earned_points[i]);
             }
         }
+
         //going through labGrades vector and summing values for particular category
-        for(int j = 0; j < this->labGrades.size(); j++){
+        for (int j = 0; j < this->labGrades.size(); j++){
             sumPoints += this->labGrades[j];
         }
-        //error checking if sumPoints is 0 it means there is no grade for this category
-        if(sumPoints == 0){
+
+        // error checking if sumPoints is 0 it means there is no grade for this category
+        if (sumPoints == 0){
             std::cout <<  "No lab grades entered." << std::endl;
-        }else{
-            //calculating grade of category
+        } else {
+            // calculating grade of category
             sumPoints = sumPoints/(labGrades.size()*20);
             sumPoints = std::round((float(sumPoints) * 100));
             std::cout << "Your total lab grade is: " << sumPoints << "%" <<  std::endl;
         }
 
-        //clearing the labGrades vector for next category input use
+        // clearing the labGrades vector for next category input use
         labGrades.clear();
 
-        //returning the total points earned for the category
+        // returning the total points earned for the category
         return sumPoints;
     }
     else if(category == "Assignment"){
@@ -158,7 +159,6 @@ float Gradebook::get_category_total(std::string category){
             sumPoints = std::round((float(sumPoints) * 100));
             std::cout << "Your total assignment grade is: " << sumPoints << "%" <<  std::endl;
         }
-
 
         //clearing the assignmentGrades vector for next category input use
         this->assignmentGrades.clear();
@@ -257,6 +257,7 @@ float Gradebook::get_category_total(std::string category){
     return 0;
 }
 
+
 //function gets the total grade of all completed deliverables
 float Gradebook::get_total_grade(){
     float points_earned = 0;
@@ -338,7 +339,7 @@ void Gradebook::edit_grade(std::string name_assignment, int new_earned_points) {
 
 
 void Gradebook::edit_completion(std::string name_assignment, bool new_completion){
-    //This function takes a deliverable name and an bool value and reassigns the vector of current completion status
+    //This function takes a deliverable name and a bool value and reassigns the vector of current completion status
 
     //Searches for the index of the assignment
     int index = -1;
@@ -354,7 +355,6 @@ void Gradebook::edit_completion(std::string name_assignment, bool new_completion
 
     //calls push_changes function which writes to the input file.
     push_changes();
-
 }
 
 
@@ -381,7 +381,6 @@ void Gradebook::push_changes() {
     myfile.open("Grades/" + this->file_name);
     myfile << out_file;
     myfile.close();
-    return;
 }
 
 

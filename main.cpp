@@ -3,8 +3,44 @@
 #include <limits>
 #include "gradebook.h"
 
-int main() {
+// INITIAL OUTLINE FOR MAIN
+/* There will be a menu that will be displayed so the user can choose a number. For certain options, a sub-menu will open
+1- Get Grade
+ 1a- for getting the current course grade
+ 1b- for getting the course grade and total grade for each category
+ 1c- for getting the course grade and all grades on assignments for each category
+ 1d- for getting the grade of an individual category
+ 1e- for getting the grade of an individual assignment
+2- List assignments
+ 2a- for listing all assignments in the gradebook
+ 2b- listing all assignments in a specific category
+3- add a new assignment
+4- edit an assignment
+ 4a- edit assignment name
+ 4b- edit category name
+ 4c- edit points earned
+ 4d- mark assignment as complete
+5- remove an assignment from the gradebook
+*/
 
+// We'll get the user's choice and check to make sure it's valid
+
+/* Perform functions on the gradebook
+1a- will print get_total_grade to get the overall course grade
+1b- will print get_total_grade just like option 1, and it will print get_category_total on each category to get that category's grade
+1c- will print get_total_grade just, like the first two options. For each category it will print that category's
+    grade and then iterate through all the assignments in that category and print those grades with get_grade_individual
+2a- will run list_assignments to list all the assignments in the gradebook
+2b- will run iterate through the assignments vector and print out assignments if it matches the entered category
+3- will ask the user to enter all the information to write to the text file with new line in the Category Title EarnedPoints IsCompleted format
+4a-d will ask the user for the new assignment name, category name, points earned, or completion and set that assignments value's accordingly
+5- will remove that line from the file and the vectors storing the assignment's info
+ */
+
+// after the user enters a choice it will run the function and ask the user to enter another input. They can enter 'quit' to stop
+
+
+int main() {
     /* Have different options for what the user can do and then show the options menu to do different things with it
     1- Ryan Brooks
     2- Ryan Shilling
@@ -59,42 +95,6 @@ int main() {
             exit(0);
         }
 
-        /* There will be a menu that will be displayed so the user can choose a number. For certain options, a sub-menu will open
-        1- Get Grade
-         1a- for getting the current course grade
-         1b- for getting the course grade and total grade for each category
-         1c- for getting the course grade and all grades on assignments for each category
-         1d- for getting the grade of an individual category
-         1e- for getting the grade of an individual assignment
-        2- List assignments
-         2a- for listing all assignments in the gradebook
-         2b- listing all assignments in a specific category
-        3- add a new assignment
-        4- edit an assignment
-         4a- edit assignment name
-         4b- edit category name
-         4c- edit points earned
-         4d- mark assignment as complete
-        5- remove an assignment from the gradebook
-        */
-
-        // We'll get the user's choice and check to make sure it's valid
-
-        /* Perform functions on the gradebook
-        1a- will print get_total_grade to get the overall course grade
-        1b- will print get_total_grade just like option 1, and it will print get_category_total on each category to get that category's grade
-        1c- will print get_total_grade just, like the first two options. For each category it will print that category's
-            grade and then iterate through all the assignments in that category and print those grades with get_grade_individual
-        2a- will run list_assignments to list all the assignments in the gradebook
-        2b- will run iterate through the assignments vector and print out assignments if it matches the entered category
-        3- will ask the user to enter all the information to write to the text file with new line in the Category Title EarnedPoints IsCompleted format
-        4a-d will ask the user for the new assignment name, category name, points earned, or completion and set that assignments value's accordingly
-        5- will remove that line from the file and the vectors storing the assignment's info
-         */
-
-        // after the user enters a choice it will run the function and ask the user to enter another input. They can enter 'quit' to stop
-
-
 
         // Start of the main loop that will do different things to do the gradebook
         std::cout << "What would you like to do with the gradebook?" << std::endl;
@@ -112,6 +112,7 @@ int main() {
             std::cout << "Invalid option, try again!" << std::endl;
             std::cin >> gradebook_choice;
         }
+
 
         // Do things with that choice
         if (gradebook_choice == "1") {
@@ -169,7 +170,6 @@ int main() {
                 std::string letter_grade = HelperFunctions::get_letter_grade(grade_return);
 
 
-
                 //outputting overall course grade and grade for each category
                 std::cout << "Your total grade for the course is: " << grade_return << "%" << std::endl;
                 std::cout << "Your letter grade is: " << letter_grade << std::endl << std::endl;
@@ -179,6 +179,7 @@ int main() {
                 gradebook->get_category_total("Project1");
                 gradebook->get_category_total("Project2");
                 gradebook->get_category_total("Exam");
+
 
                 std::cout << std::endl;
                 //getting each specific assignment grade
@@ -194,9 +195,7 @@ int main() {
                         std::cout << "Your grade for " << gradebook->get_title_assignment()[i] << " is: "
                                   << individual << "%" << std::endl;
                     }
-
                 }
-
             } else if (grade_choice == "d") {
                 float grade_return;
                 //setting single_category to temporary value
@@ -305,7 +304,7 @@ int main() {
                 }
                 if (!std::cin.fail()) break;
             }
-            while (points_earned <= 0 or points_earned > total_points) {
+            while (points_earned <= 0 || points_earned > total_points) {
                 std::cout << "Invalid input, try again.\n";
                 std::cin >> points_earned;
                 while (true) {
@@ -358,7 +357,6 @@ int main() {
             }
 
             if (choice == "a") {
-
                 //Searches for the index of the deliverable
                 int index = -1;
                 std::vector<std::string> categoryList = gradebook->get_category();
@@ -415,7 +413,6 @@ int main() {
                 std::cout << "Successfully updated grade.\n";
 
             } else if (choice == "b") {
-
                 //Prompts user for completion status of previously selected deliverable
                 std::string completion_str;
                 std::cout << "Should this deliverable be completed or not-completed?\nEnter 'completed' or 'not-completed'.\n";
