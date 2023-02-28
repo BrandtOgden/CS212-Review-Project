@@ -24,8 +24,6 @@ options will allow users to not only receive their general grades for the course
 but to be able to manipulate grade information, hence allowing this program 
 to be applicable throughout a student's progress in a course. 
 
-
-
 ## Planning 
 In our first planning session we outlined the different functions that we were 
 going to need in our class along with the different private variables we would 
@@ -64,7 +62,7 @@ open them in CLion.
   
 **If trouble running within CLion:**  
 If you are not able to compile and run the program within CLion, simply download
-gradebook.cpp, help_functions.cpp, main.cpp, and gradebook.h from the Github
+gradebook.cpp, helper_functions.cpp, main.cpp, and gradebook.h from the Github
 repository. Once in g++, access the terminal and type in the following g++
 argument (Note, if the g++ compiler is not installed, make sure to install
 and configure before running this command line):  
