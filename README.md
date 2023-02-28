@@ -9,7 +9,7 @@ make it difficult for students to view their grades for each. Additionally,
 it can be difficult to calculate the weight that each of these deliverables
 count towards one's overall grade for the course. Hence, the
 goal of this project is to provide a way for students to be able to access 
-various aspects of their grades for CSC 212. Such options include getting
+various aspects of their grades for CS 212. Such options include getting
 one's overall grade for the course, listing the grades of a student's
 deliverables, and being able to add, edit, and/or remove assignments. 
 Getting one's grades is imperative to seeing where a student stands in the 
@@ -28,7 +28,10 @@ to be applicable throughout a student's progress in a course.
 In our first planning session we outlined the different functions that we were 
 going to need in our class along with the different private variables we would 
 need, and started to think about how these functions would be working.
-<img src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"  width="400" height="400">
+<p align="center" width="100%">
+    <img width="500" height="500" src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"> 
+</p>
+
 During this planning session we divided who would do the different functions.
 Brandt worked on the constructor for the gradebook which took input from a file
 and put it into the private vectors associated with the GradeBook class. He also 
@@ -45,7 +48,7 @@ including the ability to remove an assignment.
 There are two options to run the program:  
 **Option 1**  
 
-To run the program, access the root directory section of the Github. You can access the 
+To run the program, acess the root directory section of the Github. You can access the 
 following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
 Once on the main repository page, select the 'Code' button at the top right, and copy the link
 to the Github. Alternatively, use this link: https://github.com/BrandtOgden/CS212-Review-Project.git
@@ -164,7 +167,7 @@ Type 1 - Open the gradebook of one us
   ```
 **Option 2**  
 Selecting option 2 allows the user to get all of their current deliverables that are 
-in the selected text file. After viewing the deliveries, the user is prompted with 
+in the selected text file. After viewing the deliveries, the user is promped with 
 the option to once again continue or quit, as seen above.   
 
 **Option 3**  
@@ -360,7 +363,7 @@ run the program to show that we are pushing the changes we made from the console
 
 Input: Option 3 - Jake's Gradebook
 
-"Jake_grades.txt" before we run the program:
+"Jake_grades.txt" before we running the program:
 ```
 Jake Dansereau
 Assignment A2 50 completed
