@@ -7,7 +7,7 @@
 Courses that have a large quantity of assignments, projects, and/or labs can 
 make it difficult for students to view their grades for each. Additionally, 
 it can be difficult to calculate the weight that each of these deliverables
-count towards in finding one's overall grade for the course. Hence, the
+count towards one's overall grade for the course. Hence, the
 goal of this project is to provide a way for students to be able to access 
 various aspects of their grades for CS 212. Such options include getting
 one's overall grade for the course, listing the grades of a student's
@@ -39,13 +39,14 @@ options in main. Jake worked on the get_category_grade and get_total_grade
 functions along with the corresponding options in main. Ryan Shilling worked 
 on the edit functions that allow the user to edit different grades and completion
 status along with the corresponding options in main. Ryan Brooks wrote the 
-outline for main (you can see this in the comments at the top of main.cpp) and 
+outline for main (you can see this in the comments at the main.cpp file) and 
 did most of the miscellaneous work on it that didn't fit into anyone else's role,
 including the ability to remove an assignment.  
 
 ## Compilation Instructions
 There are two options to run the program:  
 **Option 1**  
+
 To run the program, acess the root directory section of the Github. You can access the 
 following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
 Once on the main repository page, select the 'Code' button at the top right, and copy the link
@@ -56,6 +57,7 @@ the files.  You may then proceed to run the program. Note that when you compile 
 sure you are in the root directory of the repository.
 
 **Option 2**
+
 If Option 1 does not work, you can also download the zip by accessing the 'Code' button in the
 repository, and clicking 'Download Zip'. You can then access these files on your computer and 
 open them in CLion. 
@@ -103,7 +105,6 @@ Upon running the program, the user will be presented with two options:
 ```
   Type 1 - Open the gradebook of one us  
        2 - Quit  
-    
 ```
         
 Entering option 2 will terminate the program with exit code 0. Entering option 
@@ -505,70 +506,270 @@ Input: Option 1 - Ryan Brook's Gradebook
 
 "RyanB_grades.txt" before running the program:
 ```
-INSERT RYAN BROOK GRADES TEXT FILE BEFORE THE PROGRAM IS RUN
+Ryan Brooks
+Assignment A2 50 completed
+Assignment A3 30 completed
+Lab L1 15 completed
+Lab L2 20 completed
 ```
 
 Console Input/Output:
 ```
-INSERT CONSOLE INPUT AND OUTPUT FROM RUNNING
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+1
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+2
+Your current deliverables are:
+A2
+A3
+L1
+L2
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+1
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+5
+What deliverable would you like to remove?
+A3
+Assignment "A3" has been removed
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+1
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+2
+Your current deliverables are:
+A2
+L1
+L2
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+2
 ```
 
 "RyanB_grade.txt" after running the program:
 ```
-INSERT RYAN BROOKS GRADES TEXT FILE AFTER THE PROGRAM IS RUN
+Ryan Brooks
+Assignment A2 50 completed
+Lab L1 20 completed
+Lab L2 20 completed
 ```
 
 
 ### Example 4
-This example shows that you can only display the total grade and can create a new assignment.
+This example shows that you can have the program only display the total grade and can create a new assignment.
 Creating a new assignment both changes the total grade and changes the text file after running the program.
 
 Input: Option 2 - Ryan Shilling's Gradebook
 
 "RyanS_grades.txt" before running the program:
 ```
-INSERT RYAN SHILLING GRADES TEXT FILE BEFORE THE PROGRAM IS RUN
+Ryan Shilling
+Assignment A2 50 completed
+Assignment A3 30 completed
+Lab L1 20 completed
+Lab L2 20 completed
 ```
 
 Console Input/Output:
 ``` 
-INSERT CONSOLE INPUT AND OUTPUT FROM RUNNING
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+2
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+1
+What grade would you like?
+    a - Your overall course grade
+    b - Your overall course grade and the grade of each category
+    c - Your overall course grade, grade of each category, and all the grades of the different deliverables
+    d - Your grade for one specific category
+    e - Your grade for a specific deliverable
+a
+Your total grade for the course is: 86%
+Your letter grade is: B
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+2
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+3
+Enter the category of the assignment:
+Categories:
+    Assignment
+    Lab
+    Project1
+    Project2
+Assignment 
+Enter the name of the assignment:
+A4
+Enter the number of points earned for the assignment:
+25
+Has the assignment been completed or not? Enter y/n:
+y
+Assignment "A4" has been assignment created
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+2
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+1
+What grade would you like?
+    a - Your overall course grade
+    b - Your overall course grade and the grade of each category
+    c - Your overall course grade, grade of each category, and all the grades of the different deliverables
+    d - Your grade for one specific category
+    e - Your grade for a specific deliverable
+a
+Your total grade for the course is: 76%
+Your letter grade is: C
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+2
 ```
 
 "RyanS_grade.txt" after running the program:
 ```
-INSERT RYAN SHILLING GRADES TEXT FILE AFTER THE PROGRAM IS RUN
+Ryan Shilling
+Assignment A2 50 completed
+Assignment A3 30 completed
+Lab L1 20 completed
+Lab L2 20 completed
+Assignment A4 25 completed
 ```
 
 
 ### Example 5
 This example shows being able to display the total grade, along with the different grades for each category. It shows
 how the program handles it if there are not any deliverables in a category. This example also shows the different 
-examples of input checking to only allow the user to enter a value that we can handle.
+ways that out program handle checking user input to make sure they enter a value that the program can deal with.
 
 Input Option 2 - Ryan Shilling's Gradebook
 
 "RyanS_grades.txt" before running the program
 ```
-INSERT RYAN SHILLING GRADES TEXT FILE BEFORE THE PROGRAM IS RUN
+Ryan Shilling
+Assignment A2 50 completed
+Assignment A3 30 completed
+Lab L1 20 completed
+Lab L2 20 completed
 ```
 
 Console Input/Output:
 ```
-INSERT CONSOLE INPUT AND OUTPUT FROM RUNNING
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+blablabla
+Invalid option, try again!
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+NONONONONONONONONONONONON
+Invalid option, try again!
+2
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+1
+What grade would you like?
+    a - Your overall course grade
+    b - Your overall course grade and the grade of each category
+    c - Your overall course grade, grade of each category, and all the grades of the different deliverables
+    d - Your grade for one specific category
+    e - Your grade for a specific deliverable
+asdkfljsadfj
+Invalid option, try again!
+b
+Your total grade for the course is: 86%
+Your letter grade is: B
+Your total lab grade is: 100%
+Your total assignment grade is: 80%
+No Project 1 grade entered.
+No Project 2 grade entered.
+No Exam grade entered.
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+2
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
