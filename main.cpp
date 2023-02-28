@@ -237,7 +237,8 @@ int main() {
                     // Calculates and outputs the grade
                     int pct = gradebook->get_grade_individual(name_deliverable);
                     std::string letter_grade = HelperFunctions::get_letter_grade(pct);
-                    std::cout << "Your grade for " << name_deliverable << " is a " << letter_grade << std::endl;
+                    std::cout << "Your grade for " << name_deliverable << " is a " << pct << "%" << std::endl;
+                    std::cout << "Your letter grade for " << name_deliverable << " is a " << letter_grade << std::endl;
                 }
             }
         } else if (gradebook_choice == "2") {
