@@ -1,3 +1,7 @@
+<style>
+img { float: left; margin-right: 20px;}
+</style>
+
 # CS212-Review-Project
 **Ryan Shilling, Ryan Brooks, Jake Dansereau, Brandt Ogden**
 
