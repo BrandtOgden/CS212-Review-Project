@@ -79,11 +79,13 @@ Note that if you want to set up your own text file, ensure that you input data i
 file in the following format: 
 ```
 first_name last_name  
-category deliverable points_earned completion
-category deliverable points_earned completion
-category deliverable points_earned completion
+category deliverable_name points_earned completion
+category deliverable_name points_earned completion
+category deliverable_name points_earned completion
 ...etc...
 ```
+completion should be entered as the word ```completed``` or ```not completed```
+
 This will ensure all information is read correctly.   
     
 
@@ -260,4 +262,324 @@ Type 1 - Open the gradebook of one us
      2 - Quit  
 ``` 
 ## Sample Runs
+### Example 1
+This is an accurate reflection of what Brandt's current grade is for CS 212.
+You can see it display the total grade, grade of each category, and the grade
+or each individual deliverable.
+
+Input: Option 4 - Brandt's Gradebook
+
+This is "Brandt_grades.txt":
+```
+Brandt Ogden
+Assignment A2 50 completed
+Assignment A3 0 not-completed
+Assignment A4 0 not-completed
+Assignment A5 0 not-completed
+Lab L1 20 completed
+Lab L2 20 completed
+Lab L3 20 completed
+Lab L4 20 completed
+Lab L5 20 completed
+Lab L6 0 not-completed
+Lab L7 0 not-completed
+Lab L8 0 not-completed
+Lab L9 0 not-completed
+Lab L10 0 not-completed
+Lab L11 0 not-completed
+Lab L12 0 not-completed
+Project1 P1 0 not-completed
+Project2 P2 0 not-completed
+Exam FinalExam 0 not-completed
+```
+
+Console Input/Output:
+```
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+4
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+1
+What grade would you like?
+    a - Your overall course grade
+    b - Your overall course grade and the grade of each category
+    c - Your overall course grade, grade of each category, and all the grades of the different deliverables
+    d - Your grade for one specific category
+    e - Your grade for a specific deliverable
+c
+Your total grade for the course is: 100%
+Your letter grade is: A
+
+Your total lab grade is: 100%
+Your total assignment grade is: 100%
+No Project 1 grade entered.
+No Project 2 grade entered.
+No Exam grade entered.
+
+Your grade for A2 is: 100%
+A3 has not been completed yet.
+A4 has not been completed yet.
+A5 has not been completed yet.
+Your grade for L1 is: 100%
+Your grade for L2 is: 100%
+Your grade for L3 is: 100%
+Your grade for L4 is: 100%
+Your grade for L5 is: 100%
+L6 has not been completed yet.
+L7 has not been completed yet.
+L8 has not been completed yet.
+L9 has not been completed yet.
+L10 has not been completed yet.
+L11 has not been completed yet.
+L12 has not been completed yet.
+P1 has not been completed yet.
+P2 has not been completed yet.
+FinalExam has not been completed yet.
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+2
+```
+
+### Example 2
+This shows the functionality of the edit option using a somewhat random grade for each deliverable,
+and a somewhat random completion status. As you can see in the output we change the number of earned points
+for A2 from 50 to 10 which changes the grade from an A to an F. "Jake_grades.txt" is shown after we
+run the program to show that we are pushing the changes we made from the console to the text file.
+
+Input: Option 3 - Jake's Gradebook
+
+"Jake_grades.txt" before we running the program:
+```
+Jake Dansereau
+Assignment A2 50 completed
+Assignment A3 35 completed
+Assignment A4 45 not-completed
+Assignment A5 10 not-completed
+Lab L1 20 completed
+Lab L2 17 completed
+Lab L3 15 completed
+Lab L4 18 completed
+Lab L5 20 completed
+Lab L6 14 completed
+Lab L7 20 not-completed
+Lab L8 20 not-completed
+Lab L9 20 not-completed
+Lab L10 20 not-completed
+Lab L11 20 not-completed
+Lab L12 20 not-completed
+Project1 P1 150 completed
+Project2 P2 300 completed
+Exam FinalExam 90 completed
+```
+
+Console Input/Output:
+```
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+3
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+1
+What grade would you like?
+    a - Your overall course grade
+    b - Your overall course grade and the grade of each category
+    c - Your overall course grade, grade of each category, and all the grades of the different deliverables
+    d - Your grade for one specific category
+    e - Your grade for a specific deliverable
+e
+Enter the name of an assignment:
+A2
+Your grade for A2 is a A
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+3
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+4
+Enter the name of an assignment:
+A2
+What would you like to edit about this deliverable?
+    a - Edit the Grade
+    b - Edit the completion status
+a
+Enter the new grade for A2
+Maximum points on this deliverable is 50.
+10
+Successfully updated grade.
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+1
+Which person's gradebook would you like to open?
+    1 - Ryan Brooks
+    2 - Ryan Shilling
+    3 - Jake Dansereau
+    4 - Brandt Ogden
+3
+What would you like to do with the gradebook?
+    1 - Get your grade
+    2 - List the current deliverables
+    3 - Create a new assignment
+    4 - Edit an existing assignment
+    5 - Remove an assignment
+1
+What grade would you like?
+    a - Your overall course grade
+    b - Your overall course grade and the grade of each category
+    c - Your overall course grade, grade of each category, and all the grades of the different deliverables
+    d - Your grade for one specific category
+    e - Your grade for a specific deliverable
+e
+Enter the name of an assignment:
+A2
+Your grade for A2 is a F
+What would you like to do?
+Type 1 - Open the gradebook of one us
+     2 - Quit
+2
+```
+"Jake_grades.txt" after running the program:
+```
+Jake Dansereau
+Assignment A2 10 completed
+Assignment A3 35 completed
+Assignment A4 45 not-completed
+Assignment A5 10 not-completed
+Lab L1 20 completed
+Lab L2 17 completed
+Lab L3 15 completed
+Lab L4 18 completed
+Lab L5 20 completed
+Lab L6 14 completed
+Lab L7 20 not-completed
+Lab L8 20 not-completed
+Lab L9 20 not-completed
+Lab L10 20 not-completed
+Lab L11 20 not-completed
+Lab L12 20 not-completed
+Project1 P1 150 completed
+Project2 P2 300 completed
+Exam FinalExam 90 completed
+```
+
+### Example 3
+This example demonstrates the ability to be able to list the different deliverables in the gradebook,
+and to be able to remove a deliverable, and show these changes in the text file.
+
+Input: Option 1 - Ryan Brook's Gradebook
+
+"RyanB_grades.txt" before running the program:
+```
+INSERT RYAN BROOK GRADES TEXT FILE BEFORE THE PROGRAM IS RUN
+```
+
+Console Input/Output:
+```
+INSERT CONSOLE INPUT AND OUTPUT FROM RUNNING
+```
+
+"RyanB_grade.txt" after running the program:
+```
+INSERT RYAN BROOKS GRADES TEXT FILE AFTER THE PROGRAM IS RUN
+```
+
+
+### Example 4
+This example shows that you can only display the total grade and can create a new assignment.
+Creating a new assignment both changes the total grade and changes the text file after running the program.
+
+Input: Option 2 - Ryan Shilling's Gradebook
+
+"RyanS_grades.txt" before running the program:
+```
+INSERT RYAN SHILLING GRADES TEXT FILE BEFORE THE PROGRAM IS RUN
+```
+
+Console Input/Output:
+``` 
+INSERT CONSOLE INPUT AND OUTPUT FROM RUNNING
+```
+
+"RyanS_grade.txt" after running the program:
+```
+INSERT RYAN SHILLING GRADES TEXT FILE AFTER THE PROGRAM IS RUN
+```
+
+
+### Example 5
+This example shows being able to display the total grade, along with the different grades for each category. It shows
+how the program handles it if there are not any deliverables in a category. This example also shows the different 
+examples of input checking to only allow the user to enter a value that we can handle.
+
+Input Option 2 - Ryan Shilling's Gradebook
+
+"RyanS_grades.txt" before running the program
+```
+INSERT RYAN SHILLING GRADES TEXT FILE BEFORE THE PROGRAM IS RUN
+```
+
+Console Input/Output:
+```
+INSERT CONSOLE INPUT AND OUTPUT FROM RUNNING
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

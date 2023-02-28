@@ -216,7 +216,7 @@ int main() {
 
                 //error checking to make sure there is a grade for that specific category
                 if (grade_return != 0) {
-                    std::cout << "Your grade for " << single_category << " is " << grade_return << "%";
+                    std::cout << "Your grade for " << single_category << " is " << grade_return << "%\n";
                 }
 
             } else if (grade_choice == "e") {
@@ -230,11 +230,16 @@ int main() {
                     std::cin >> name_deliverable;
                 }
 
-                // Calculates and outputs the grade
-                int pct = gradebook->get_grade_individual(name_deliverable);
-                std::string letter_grade = HelperFunctions::get_letter_grade(pct);
-                std::cout << "Your grade for " << name_deliverable << " is a " << letter_grade << std::endl;
-
+                // Checks if the assignment has not been completed
+                if (gradebook->get_grade_individual(name_deliverable) == -2) {
+                    std::cout << "This assignment has not been completed" << std::endl;
+                } else {
+                    // Calculates and outputs the grade
+                    int pct = gradebook->get_grade_individual(name_deliverable);
+                    std::string letter_grade = HelperFunctions::get_letter_grade(pct);
+                    std::cout << "Your grade for " << name_deliverable << " is a " << pct << "%" << std::endl;
+                    std::cout << "Your letter grade for " << name_deliverable << " is a " << letter_grade << std::endl;
+                }
             }
         } else if (gradebook_choice == "2") {
             // Outputs all the different deliverables in the text file
