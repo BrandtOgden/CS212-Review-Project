@@ -66,9 +66,27 @@ gradebook.cpp, help_functions.cpp, main.cpp, and gradebook.h from the Github
 repository. Once in g++, access the terminal and type in the following g++
 argument (Note, if the g++ compiler is not installed, make sure to install
 and configure before running this command line):  
-  ```
+```
   g++ -std=c+11 gradebook.cpp helper_functions.cpp main.cpp -o prog && ./prog  
-   ``` 
+``` 
+   
+**Setting up text files:**
+When setting up the program, ensure that all .txt files with the grades are inside 
+of the cmake-build-debug folder. This will allow the program to have access to them. 
+  
+
+Note that if you want to set up your own text file, ensure that you input data into the 
+file in the following format: 
+```
+first_name last_name  
+category deliverable points_earned completion
+category deliverable points_earned completion
+category deliverable points_earned completion
+...etc...
+```
+This will ensure all information is read correctly.   
+    
+
 
 ## Runtime Instructions 
 During runtime different options will be shown to allow you to do different things 
