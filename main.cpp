@@ -216,7 +216,7 @@ int main() {
 
                 //error checking to make sure there is a grade for that specific category
                 if (grade_return != 0) {
-                    std::cout << "Your grade for " << single_category << " is " << grade_return << "%";
+                    std::cout << "Your grade for " << single_category << " is " << grade_return << "%\n";
                 }
 
             } else if (grade_choice == "e") {
