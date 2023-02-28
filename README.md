@@ -75,7 +75,10 @@ and configure before running this command line):
    
 **Setting up text files:**
 When setting up the program, ensure that all .txt files with the grades are inside 
-of the cmake-build-debug folder. This will allow the program to have access to them. 
+of the cmake-build-debug/Grades. When you pull from the GitHub repository our text files
+are in there by default
+
+**IMPORTANT: IF THESE FILES ARE NOT IN THE cmake-build-debug/Grades THE PROGRAM WILL NOTE WORK**
   
 
 Note that if you want to set up your own text file, ensure that you input data into the 
