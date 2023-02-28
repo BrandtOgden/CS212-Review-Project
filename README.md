@@ -24,13 +24,14 @@ options will allow users to not only receive their general grades for the course
 but to be able to manipulate grade information, hence allowing this program 
 to be applicable throughout a student's progress in a course. 
 
-
-
 ## Planning 
 In our first planning session we outlined the different functions that we were 
 going to need in our class along with the different private variables we would 
 need, and started to think about how these functions would be working.
-<img src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"  width="400" height="400">
+<p align="center" width="100%">
+    <img width="500" height="500" src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"> 
+</p>
+
 During this planning session we divided who would do the different functions.
 Brandt worked on the constructor for the gradebook which took input from a file
 and put it into the private vectors associated with the GradeBook class. He also 
@@ -46,6 +47,7 @@ including the ability to remove an assignment.
 ## Compilation Instructions
 There are two options to run the program:  
 **Option 1**  
+
 To run the program, acess the root directory section of the Github. You can access the 
 following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
 Once on the main repository page, select the 'Code' button at the top right, and copy the link
@@ -56,13 +58,14 @@ the files.  You may then proceed to run the program. Note that when you compile 
 sure you are in the root directory of the repository.
 
 **Option 2**
+
 If Option 1 does not work, you can also download the zip by accessing the 'Code' button in the
 repository, and clicking 'Download Zip'. You can then access these files on your computer and 
 open them in CLion. 
   
 **If trouble running within CLion:**  
 If you are not able to compile and run the program within CLion, simply download
-gradebook.cpp, help_functions.cpp, main.cpp, and gradebook.h from the Github
+gradebook.cpp, helper_functions.cpp, main.cpp, and gradebook.h from the Github
 repository. Once in g++, access the terminal and type in the following g++
 argument (Note, if the g++ compiler is not installed, make sure to install
 and configure before running this command line):  
@@ -103,7 +106,6 @@ Upon running the program, the user will be presented with two options:
 ```
   Type 1 - Open the gradebook of one us  
        2 - Quit  
-    
 ```
         
 Entering option 2 will terminate the program with exit code 0. Entering option 
