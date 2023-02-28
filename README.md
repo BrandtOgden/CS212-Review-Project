@@ -1,7 +1,3 @@
-<style>
-img { float: left; margin-right: 20px;}
-</style>
-
 # CS212-Review-Project
 **Ryan Shilling, Ryan Brooks, Jake Dansereau, Brandt Ogden**
 
@@ -13,7 +9,7 @@ make it difficult for students to view their grades for each. Additionally,
 it can be difficult to calculate the weight that each of these deliverables
 count towards one's overall grade for the course. Hence, the
 goal of this project is to provide a way for students to be able to access 
-various aspects of their grades for CS 212. Such options include getting
+various aspects of their grades for CSC 212. Such options include getting
 one's overall grade for the course, listing the grades of a student's
 deliverables, and being able to add, edit, and/or remove assignments. 
 Getting one's grades is imperative to seeing where a student stands in the 
@@ -49,7 +45,7 @@ including the ability to remove an assignment.
 There are two options to run the program:  
 **Option 1**  
 
-To run the program, acess the root directory section of the Github. You can access the 
+To run the program, access the root directory section of the Github. You can access the 
 following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
 Once on the main repository page, select the 'Code' button at the top right, and copy the link
 to the Github. Alternatively, use this link: https://github.com/BrandtOgden/CS212-Review-Project.git
@@ -168,7 +164,7 @@ Type 1 - Open the gradebook of one us
   ```
 **Option 2**  
 Selecting option 2 allows the user to get all of their current deliverables that are 
-in the selected text file. After viewing the deliveries, the user is promped with 
+in the selected text file. After viewing the deliveries, the user is prompted with 
 the option to once again continue or quit, as seen above.   
 
 **Option 3**  
@@ -364,7 +360,7 @@ run the program to show that we are pushing the changes we made from the console
 
 Input: Option 3 - Jake's Gradebook
 
-"Jake_grades.txt" before we running the program:
+"Jake_grades.txt" before we run the program:
 ```
 Jake Dansereau
 Assignment A2 50 completed
