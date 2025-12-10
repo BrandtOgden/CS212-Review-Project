@@ -1,18 +1,21 @@
 #include "gradebook.h"
+#include <stdexcept>
 #include <vector>
 
 // Implement functions as defined in gradebook.h
 Gradebook::Gradebook(std::string file_name) {
-    // ALL FILES WE WANT TO USE HAVE TO BE IN THE GRADES FOLDER
-    // WILL WANT TO MENTION THIS IS THE VIDEO
-    // First line should be the name whose grades are in the file
+    // First line in `file_name` should be the name whose grades are in the file
     // The next lines should be in the format,
     // Category Title EarnedPoints IsCompleted
+
+    if (!HelperFunctions::check_valid_file(file_name)) {
+        throw std::runtime_error("Invalid filename provided. Try again.");
+    }
 
     this->file_name = file_name;
 
     // Opens the file
-    std::ifstream infile("Grades/" + file_name);
+    std::ifstream infile(file_name);
 
     // Gets the name from the first line and store it in the private variable name
     std::getline(infile, this->name);
@@ -300,7 +303,7 @@ std::string Gradebook::new_assignment(std::string category, std::string name, in
 
     // write a new line to the file with all the information from the user
     // return that the assignment has been created
-    gradebook_file.open("Grades/" + file_name, std::fstream::app);
+    gradebook_file.open(file_name, std::fstream::app);
     gradebook_file << "\n" + category + " " + name + " " + std::to_string(points_earned) + " " + is_completed;
 
     // add the new assignment to the vectors
@@ -377,7 +380,7 @@ void Gradebook::push_changes() {
 
     //Sends out_file data into the file.
     std::ofstream myfile;
-    myfile.open("Grades/" + this->file_name);
+    myfile.open(this->file_name);
     myfile << out_file;
     myfile.close();
 }
