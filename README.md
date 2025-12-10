@@ -1,8 +1,6 @@
 # CS212-Review-Project
 **Ryan Shilling, Ryan Brooks, Jake Dansereau, Brandt Ogden**
 
-
-
 ## Summary 
 Courses that have a large quantity of assignments, projects, and/or labs can 
 make it difficult for students to view their grades for each. Additionally, 
@@ -29,7 +27,7 @@ In our first planning session we outlined the different functions that we were
 going to need in our class along with the different private variables we would 
 need, and started to think about how these functions would be working.
 <p align="center" width="100%">
-    <img width="500" height="500" src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"> 
+    <img width="500" height="500" src="assets/planning.jpg"> 
 </p>
 
 During this planning session we divided who would do the different functions.
@@ -45,41 +43,19 @@ did most of the miscellaneous work on it that didn't fit into anyone else's role
 including the ability to remove an assignment.  
 
 ## Compilation Instructions
-There are two options to run the program:  
-**Option 1**  
-
-To run the program, acess the root directory section of the Github. You can access the 
-following root directory on the Github here: https://github.com/BrandtOgden/CS212-Review-Project
-Once on the main repository page, select the 'Code' button at the top right, and copy the link
-to the Github. Alternatively, use this link: https://github.com/BrandtOgden/CS212-Review-Project.git
-Open up Git within CLion, navigate to 'Version Control' at the bottom left hand. In the console
-section, select 'Create Git Repository' and upload the link. You will now have access to all of 
-the files.  You may then proceed to run the program. Note that when you compile the program, make 
-sure you are in the root directory of the repository.
-
-**Option 2**
-
-If Option 1 does not work, you can also download the zip by accessing the 'Code' button in the
-repository, and clicking 'Download Zip'. You can then access these files on your computer and 
-open them in CLion. 
-  
-**If trouble running within CLion:**  
-If you are not able to compile and run the program within CLion, simply download
-gradebook.cpp, helper_functions.cpp, main.cpp, and gradebook.h from the Github
-repository. Once in g++, access the terminal and type in the following g++
-argument (Note, if the g++ compiler is not installed, make sure to install
-and configure before running this command line):  
+We use CMake as the build system. Run the following to build:
 ```
-  g++ -std=c+11 gradebook.cpp helper_functions.cpp main.cpp -o prog && ./prog  
-``` 
+cd src
+mkdir build && cd build
+cmake ..
+make
+```
+
+This produces an executable named `CS212_Review_Project`, that will run our program.
    
 **Setting up text files:**
-When setting up the program, ensure that all .txt files with the grades are inside 
-of the cmake-build-debug/Grades. When you pull from the GitHub repository our text files
-are in there by default
-
-**IMPORTANT: IF THESE FILES ARE NOT IN THE cmake-build-debug/Grades THE PROGRAM WILL NOTE WORK**
-  
+There are existing `.txt` files in the `grades` directory with some fake grades
+for us to demonstrate our working program. You can also set your own.
 
 Note that if you want to set up your own text file, ensure that you input data into the 
 file in the following format: 
@@ -93,7 +69,6 @@ category deliverable_name points_earned completion
 completion should be entered as the word ```completed``` or ```not completed```
 
 This will ensure all information is read correctly.   
-    
 
 
 ## Runtime Instructions 
@@ -120,8 +95,12 @@ Which person's gradebook would you like to open?
     2 - Ryan Shilling  
     3 - Jake Dansereau  
     4 - Brandt Ogden  
+    5 - Your own
 ```
-Entering an option 1-4 prompts the 'main menu' for selecting different viewing 
+
+After selection option 5 you will be prompted to provide a valid file.
+
+Entering options 1-4 prompts the 'main menu' for selecting different viewing 
 options for grades:  
   ```
 What would you like to do with the gradebook?  

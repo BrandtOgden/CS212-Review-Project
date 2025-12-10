@@ -34,13 +34,8 @@ public:
 
     // Checks if file_name actually opens a file
     static bool check_valid_file(std::string file_name) {
-        std::ifstream infile("Grades/" + file_name);
-        if (infile.is_open()) {
-            infile.close();
-            return true;
-        }
-        infile.close();
-        return false;
+        std::ifstream infile(file_name);
+        return infile.is_open();
     }
 };
 

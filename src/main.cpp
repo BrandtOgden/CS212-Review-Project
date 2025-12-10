@@ -1,6 +1,6 @@
 #include <iostream>
-#include <fstream>
 #include <limits>
+#include <stdexcept>
 #include "gradebook.h"
 
 // INITIAL OUTLINE FOR MAIN
@@ -53,7 +53,7 @@ int main() {
     // repeat until the user enters 2 to quit
     while (choice != "2") {
         std::cout << "What would you like to do?" << std::endl;
-        std::cout << "Type 1 - Open the gradebook of one us" << std::endl;
+        std::cout << "Type 1 - Open a gradebook" << std::endl;
         std::cout << "     2 - Quit" << std::endl;
         std::cin >> choice;
         while (choice != "1" && choice != "2") {
@@ -71,25 +71,39 @@ int main() {
             std::cout << "    2 - Ryan Shilling" << std::endl;
             std::cout << "    3 - Jake Dansereau" << std::endl;
             std::cout << "    4 - Brandt Ogden" << std::endl;
+            std::cout << "    5 - Your own" << std::endl;
             std::string person_choice;
             std::cin >> person_choice;
 
             // Check for valid input
-            while (person_choice != "1" && person_choice != "2" && person_choice != "3" && person_choice != "4") {
+            while (person_choice != "1" && person_choice != "2" && person_choice != "3" && person_choice != "4" && person_choice != "5") {
                 std::cout << "Invalid option, try again!" << std::endl;
                 std::cin >> person_choice;
             }
 
             // Does things based on the person_choice
             if (person_choice == "1") {
-                gradebook = new Gradebook("RyanB_grades.txt");
+                gradebook = new Gradebook("grades/RyanB_grades.txt");
             } else if (person_choice == "2") {
-                gradebook = new Gradebook("RyanS_grades.txt");
+                gradebook = new Gradebook("grades/RyanS_grades.txt");
             } else if (person_choice == "3") {
-                gradebook = new Gradebook("Jake_grades.txt");
+                gradebook = new Gradebook("grades/Jake_grades.txt");
+            } else if (person_choice == "4") {
+                gradebook = new Gradebook("grades/Brandt_grades.txt");
             } else {
-                // Choice d
-                gradebook = new Gradebook("Brandt_grades.txt");
+                std::cout << "Provide the path of the gradebook file: " << std::endl;
+                std::string fname;
+                std::cin >> fname;
+
+                while (true) {
+                    try {
+                        gradebook = new Gradebook(fname);
+                        break;
+                    } catch (std::runtime_error e) {
+                        std::cout << e.what() << std::endl;
+                        std::cin >> fname;
+                    }
+                }
             }
         } else {
             exit(0);
