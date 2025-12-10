@@ -1,8 +1,6 @@
 # CS212-Review-Project
 **Ryan Shilling, Ryan Brooks, Jake Dansereau, Brandt Ogden**
 
-
-
 ## Summary 
 Courses that have a large quantity of assignments, projects, and/or labs can 
 make it difficult for students to view their grades for each. Additionally, 
@@ -29,7 +27,7 @@ In our first planning session we outlined the different functions that we were
 going to need in our class along with the different private variables we would 
 need, and started to think about how these functions would be working.
 <p align="center" width="100%">
-    <img width="500" height="500" src="https://user-images.githubusercontent.com/123508751/221453881-786c4854-2ade-4c52-afe7-09f3017ce446.jpg"> 
+    <img width="500" height="500" src="assets/planning.jpg"> 
 </p>
 
 During this planning session we divided who would do the different functions.
